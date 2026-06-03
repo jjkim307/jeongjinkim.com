@@ -56,29 +56,39 @@ browser mockup, restyled in OU colors.
 
 ## Site structure
 
-Top navigation (present on every page): **Home · Research · Teaching · CV**
+Top navigation (present on every page): **Home · Research · Teaching · CV · Contact**
 
 ### Home (`/`)
 - Nav
 - Hero:
   - Headshot (`public/headshot.jpg`, placeholder until provided)
-  - Name (H1), title line (H2)
-  - Bio paragraph with journal names called out inline
-  - Quick-link row: Google Scholar · CV · Email (`mailto:jjkim@ou.edu`)
+  - Name (H1), title line
+  - Bio paragraph: research focus + the "what shapes performance behavior and
+    well-being... the why's and how's" framing + education (B.A. Wisconsin–Madison,
+    M.A. Yonsei, Ph.D. George Mason).
+  - Quick-link buttons: Google Scholar · CV · Email · LinkedIn (real URLs).
+- PhD recruitment callout (cream-accented): recruiting an I-O Ph.D. student for
+  Fall 2026.
 - Research Focus Areas: three cards, each linking into `/research`:
   1. Person–Situation Interactions
   2. Job Attitudes & Affect/Emotions
   3. Individual Work Performance & Well-Being
 
 ### Research (`/research`)
-- The three streams expanded, each with a short paragraph and a publications
-  list filtered to that stream.
+- The three streams expanded, each with a description and a publications list
+  filtered to that stream. Publications seeded from Google Scholar (10 I-O papers;
+  one off-topic 2018 paper excluded).
 
 ### Teaching (`/teaching`)
 - Courses taught. Placeholder content until specifics are provided.
 
 ### CV (`/cv`)
 - Links to / embeds the hosted CV PDF (`public/cv.pdf`).
+
+### Contact (`/contact`)
+- Email, office address (Dale Hall Tower, Room 737, 445 W. Lindsey St., Norman, OK
+  73019), and professional links (Google Scholar, LinkedIn, OU faculty page).
+- Carried over from the prior Google Sites site.
 
 ## Components
 
@@ -94,11 +104,24 @@ Kept small and single-purpose so pages stay readable and reusable:
 ## Content model
 
 - Publications stored in a single data file `src/data/publications.js` as an array
-  of objects (e.g. `{ authors, year, title, venue, url, stream }`). The Research
-  page maps over this array and groups by `stream`. Adding a paper is a one-line edit.
+  of objects (`{ authors, year, title, venue, url, stream }`). The Research page
+  maps over this array and groups by `stream`. Adding a paper is a one-line edit.
+- Seeded with 10 publications pulled from Google Scholar
+  (`user=3312EoQAAAAJ`), tagged to the three streams. Two venues are flagged
+  `TODO(user)` for confirmation; the 2018 Korean-language adolescent
+  smartphone-addiction paper is excluded as off-topic for an I-O site (can be
+  added under an "Other" group on request).
 - Other page text is authored directly in the `.astro` pages (small site, YAGNI —
   no CMS or content collections until the publication list grows large enough to
   justify it).
+
+## Carried over from the prior site (www.jeongjinkim.com → Google Sites)
+
+The previous site redirected to `sites.google.com/view/jeongjinkim`. Integrated:
+education history, bio framing, detailed research-stream content (situational
+strength; job boredom and work engagement; OCB/CWB/boundary-spanning), the Contact
+page (office + links), the PhD recruitment note, and real profile URLs (Google
+Scholar, LinkedIn, OU faculty page).
 
 ## Assets
 

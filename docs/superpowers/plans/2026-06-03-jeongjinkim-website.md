@@ -35,10 +35,11 @@ jeongjinkim.com/
       research.js           # 3 research streams (shared: home cards + research page)
       publications.js       # publications array (grouped by stream on research page)
     pages/
-      index.astro           # Home
-      research.astro        # Research
+      index.astro           # Home (hero + PhD callout + research cards)
+      research.astro        # Research (streams + publications)
       teaching.astro        # Teaching
       cv.astro              # CV
+      contact.astro         # Contact (office + links)
 ```
 
 Existing repo files: `index.html` (placeholder — to be deleted), `README.md` (updated), `.gitignore` (updated), `docs/` (specs + this plan).
@@ -331,6 +332,7 @@ const links = [
   { href: '/research', label: 'Research' },
   { href: '/teaching', label: 'Teaching' },
   { href: '/cv', label: 'CV' },
+  { href: '/contact', label: 'Contact' },
 ];
 const norm = (p) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
 const current = norm(path);
@@ -431,23 +433,23 @@ export const streams = [
     id: 'person-situation',
     title: 'Person–Situation Interactions',
     short:
-      'How individual differences and situational features jointly shape behavior and well-being at work.',
+      'How situational strength and individual differences jointly shape behavior at work.',
     description:
-      'This stream examines how personal characteristics and situational features combine — rather than act in isolation — to shape employees’ behavior, attitudes, and well-being.',
+      'This stream emphasizes situational factors — particularly situational strength (strong versus weak situations) — and how they combine with individual differences to shape workplace behavior. It includes integrative conceptual review and the development of measures.',
   },
   {
     id: 'job-attitudes-affect',
     title: 'Job Attitudes & Affect/Emotions',
-    short: 'How job attitudes, moods, and emotions form and unfold over time.',
+    short: 'Job boredom, work engagement, and emotion regulation at work.',
     description:
-      'This stream investigates the formation and consequences of job attitudes and the dynamic role of affect and emotions in the workplace.',
+      'This stream investigates job attitudes and the dynamic role of affect and emotions at work — including job boredom and work engagement — and the design of cognitive reappraisal interventions to regulate workplace emotion.',
   },
   {
     id: 'performance-wellbeing',
     title: 'Individual Work Performance & Well-Being',
-    short: 'The processes linking individual work behavior to performance and well-being.',
+    short: 'Task, citizenship, counterproductive, and boundary-spanning behavior.',
     description:
-      'This stream focuses on the cognitive, affective, and social processes that drive individual job performance behavior and employee well-being.',
+      'This stream focuses on individual work performance behavior — task performance, organizational citizenship behavior, counterproductive work behavior, and boundary-spanning behavior — and its links to employee well-being.',
   },
 ];
 ```
@@ -470,7 +472,8 @@ const { id, title, short } = Astro.props;
 ```astro
 ---
 const {
-  scholarUrl = '#',
+  scholarUrl = 'https://scholar.google.com/citations?user=3312EoQAAAAJ&hl=en',
+  linkedinUrl = 'https://www.linkedin.com/in/jeongjinjjkim',
   cvUrl = '/cv.pdf',
   email = 'jjkim@ou.edu',
 } = Astro.props;
@@ -481,16 +484,19 @@ const {
     <h1 class="name-headline">JeongJin Kim</h1>
     <div class="title-headline">Assistant Professor, Department of Psychology &middot; University of Oklahoma</div>
     <p class="bio-text">
-      I study the cognitive, affective, and social processes that shape individuals’
-      job performance and well-being at work, with an emphasis on person–situation
-      interactions, job attitudes and emotions, and individual work performance behavior.
-      My research uses surveys, vignette experiments, and experience sampling and
-      longitudinal methods to understand how employees think, feel, and act in the workplace.
+      I am an Assistant Professor of Industrial–Organizational Psychology at the
+      University of Oklahoma. I study what shapes individuals’ performance behavior
+      and well-being in the workplace — and the why’s and how’s behind it — with an
+      emphasis on person–situation interactions, job attitudes and emotions, and
+      individual work performance behavior. I hold a B.A. from the University of
+      Wisconsin–Madison, an M.A. from Yonsei University, and a Ph.D. from George
+      Mason University.
     </p>
     <div class="btn-row">
       <a class="scholar-btn" href={scholarUrl}>Google Scholar</a>
       <a class="scholar-btn" href={cvUrl}>CV</a>
       <a class="scholar-btn" href={`mailto:${email}`}>Email</a>
+      <a class="scholar-btn" href={linkedinUrl}>LinkedIn</a>
     </div>
   </div>
 </section>
@@ -536,6 +542,19 @@ Add to the end of `src/styles/global.css`:
 }
 .scholar-btn:hover { background: var(--primary); color: #fff; }
 
+/* PhD recruitment callout */
+.callout {
+  background: var(--accent);
+  border: 1px solid var(--accent-line);
+  border-left: 4px solid var(--primary);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  font-size: 0.97rem;
+  color: #5c4a1f;
+}
+.callout strong { color: var(--primary); }
+
 @media (max-width: 760px) {
   .hero { flex-direction: column; text-align: center; }
   .btn-row { justify-content: center; }
@@ -550,12 +569,14 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import ResearchCard from '../components/ResearchCard.astro';
 import { streams } from '../data/research.js';
-
-// TODO(user): replace with real Google Scholar profile URL.
-const scholarUrl = 'https://scholar.google.com/';
 ---
 <Layout title="JeongJin Kim | I-O Psychology, University of Oklahoma">
-  <Hero scholarUrl={scholarUrl} />
+  <Hero />
+  <aside class="callout">
+    <strong>Prospective Ph.D. students:</strong> I am recruiting a Ph.D. student in
+    I-O Psychology to begin Fall 2026. I welcome applications from conscientious,
+    curious, and proactive candidates. <a href="/contact">Get in touch</a>.
+  </aside>
   <section class="section">
     <h2 class="section-heading">Research Focus Areas</h2>
     <div class="interest-grid">
@@ -573,6 +594,8 @@ npm run build
 grep -q 'Person' dist/index.html \
   && grep -q 'Research Focus Areas' dist/index.html \
   && grep -q 'mailto:jjkim@ou.edu' dist/index.html \
+  && grep -q 'Fall 2026' dist/index.html \
+  && grep -q '3312EoQAAAAJ' dist/index.html \
   && echo "HOME OK"
 ```
 
@@ -599,11 +622,103 @@ git commit -m "feat: add home page with hero and research cards"
 Start empty (user supplies real entries later). The shape is documented so adding a paper is a one-line edit.
 
 ```js
-// Add one object per publication. `stream` must match an `id` in research.js:
+// One object per publication. `stream` must match an `id` in research.js:
 // 'person-situation' | 'job-attitudes-affect' | 'performance-wellbeing'
-// Example:
-// { authors: 'Kim, J.', year: 2025, title: 'Paper title.', venue: 'Journal of Applied Psychology', url: '', stream: 'job-attitudes-affect' }
-export const publications = [];
+// Pulled from Google Scholar (verify venues marked TODO before publishing).
+export const publications = [
+  // Person–Situation Interactions
+  {
+    authors: 'Kim, J. J., Son, M., & Dalal, R. S.',
+    year: 2024,
+    title: 'Situational strength.',
+    venue: 'Oxford Bibliographies',
+    url: '',
+    stream: 'person-situation',
+  },
+  {
+    authors: 'Baines, J. I., Aitken, J. A., Kim, J. J., Hassani, J., Zhu, Z., Kaplan, S. A., & Dalal, R. S.',
+    year: 2022,
+    title: 'The relationship between telework and counterproductive work behavior.',
+    venue: '', // TODO(user): confirm venue
+    url: '',
+    stream: 'person-situation',
+  },
+
+  // Job Attitudes & Affect/Emotions
+  {
+    authors: 'Park, J., Woo, S. E., & Kim, J. J.',
+    year: 2024,
+    title: 'Attitudes towards artificial intelligence at work: Scale development and validation.',
+    venue: 'Journal of Occupational and Organizational Psychology',
+    url: '',
+    stream: 'job-attitudes-affect',
+  },
+  {
+    authors: 'Zhu, Z., Aitken, J. A., Kim, J. J., Baines, J. I., Kaplan, S. A., Dalal, R. S., & Hassani, J.',
+    year: 2025,
+    title:
+      'Cognitive reappraisal emotion regulation interventions in the workplace and their impact on job performance: An ecological momentary intervention approach.',
+    venue: 'Journal of Occupational and Organizational Psychology, 98(2), e70020',
+    url: '',
+    stream: 'job-attitudes-affect',
+  },
+  {
+    authors: 'Kim, J. J., Kaplan, S. A., Aitken, J. A., & Ponce, L.',
+    year: 2025,
+    title:
+      'An examination of the daily relationship between job boredom and later burnout and turnover intentions along with mitigating strategies.',
+    venue: 'Current Psychology, 44(10), 8807–8822',
+    url: '',
+    stream: 'job-attitudes-affect',
+  },
+  {
+    authors: 'Aitken, J. A., Zhu, Z., Baines, J. I., Kim, J. J., Kaplan, S. A., Dalal, R. S., & Hassani, J.',
+    year: 2025,
+    title:
+      'Emotion regulation at work: A micro-randomized trial comparing three cognitive reappraisal interventions.',
+    venue: 'Occupational Health Science',
+    url: '',
+    stream: 'job-attitudes-affect',
+  },
+  {
+    authors: 'Aitken, J. A., Baines, J. I., Kim, J. J., Zhu, Z., Hassani, J., Kaplan, S. A., & Dalal, R. S.',
+    year: 2022,
+    title:
+      'Just-in-time adaptive interventions for cognitive reappraisal: Improvements in workplace affect.',
+    venue: '', // TODO(user): confirm venue
+    url: '',
+    stream: 'job-attitudes-affect',
+  },
+
+  // Individual Work Performance & Well-Being
+  {
+    authors: 'Kim, J. J., Park, J., Sohn, Y. W., & Lim, J. I.',
+    year: 2021,
+    title:
+      'Perceived overqualification, boredom, and extra-role behaviors: Testing a moderated mediation model.',
+    venue: 'Journal of Career Development, 48(4), 400–414',
+    url: '',
+    stream: 'performance-wellbeing',
+  },
+  {
+    authors: 'Kim, J. J., Kaplan, S. A., Aitken, J. A., & Ponce, L. P.',
+    year: 2024,
+    title:
+      'Within-person dynamics of job boredom and counterproductive work behavior: A latent change score modeling approach.',
+    venue: 'Affective Science',
+    url: '',
+    stream: 'performance-wellbeing',
+  },
+  {
+    authors: 'Aitken, J. A., Dalal, R. S., Kim, J. J., & Zhu, Z.',
+    year: 2025,
+    title:
+      'The self-regulation of counterproductive work behavior: A replication of Aitken et al. (2024).',
+    venue: 'Current Psychology',
+    url: '',
+    stream: 'performance-wellbeing',
+  },
+];
 ```
 
 - [ ] **Step 2: Write `src/components/PublicationItem.astro`**
@@ -825,7 +940,73 @@ git commit -m "feat: add CV page and placeholder assets"
 
 ---
 
-## Task 7: README update and full-site verification
+## Task 7: Contact page
+
+**Files:**
+- Create: `src/pages/contact.astro`
+
+- [ ] **Step 1: Write `src/pages/contact.astro`**
+
+```astro
+---
+import Layout from '../layouts/Layout.astro';
+
+const email = 'jjkim@ou.edu';
+const links = [
+  { label: 'Google Scholar', url: 'https://scholar.google.com/citations?user=3312EoQAAAAJ&hl=en' },
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/jeongjinjjkim' },
+  { label: 'OU Faculty Page', url: 'https://www.ou.edu/cas/psychology/people/faculty/jeongjin-kim' },
+];
+---
+<Layout title="Contact | JeongJin Kim">
+  <h1>Contact</h1>
+  <p class="contact-line"><strong>Email:</strong> <a href={`mailto:${email}`}>{email}</a></p>
+  <p class="contact-line">
+    <strong>Office:</strong> Dale Hall Tower, Room 737<br />
+    Department of Psychology, University of Oklahoma<br />
+    445 W. Lindsey St., Norman, OK 73019
+  </p>
+  <p class="contact-line"><strong>Elsewhere:</strong></p>
+  <ul class="pub-list">
+    {links.map((l) => (
+      <li class="pub"><a href={l.url}>{l.label}</a></li>
+    ))}
+  </ul>
+</Layout>
+```
+
+- [ ] **Step 2: Append contact styles to `src/styles/global.css`**
+
+Add to the end of `src/styles/global.css`:
+
+```css
+/* Contact page */
+.contact-line { margin: 0 0 1rem; }
+.contact-line strong { color: var(--primary); }
+```
+
+- [ ] **Step 3: Build and verify the contact page**
+
+```bash
+export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh";
+npm run build
+grep -q 'Dale Hall Tower' dist/contact/index.html \
+  && grep -q 'linkedin.com/in/jeongjinjjkim' dist/contact/index.html \
+  && echo "CONTACT OK"
+```
+
+Expected: build exits 0 and prints `CONTACT OK`.
+
+- [ ] **Step 4: Commit**
+
+```bash
+git add src/pages/contact.astro src/styles/global.css
+git commit -m "feat: add contact page"
+```
+
+---
+
+## Task 8: README update and full-site verification
 
 **Files:**
 - Modify: `README.md`
@@ -856,9 +1037,11 @@ npm run preview      # preview the production build
 ## Editing content
 
 - Research streams: `src/data/research.js`
-- Publications: `src/data/publications.js` (one object per paper; `stream` must match a research id)
+- Publications: `src/data/publications.js` (one object per paper; `stream` must match a research id; confirm venues marked `TODO`)
 - Courses: `courses` array in `src/pages/teaching.astro`
-- Bio / quick links: `src/components/Hero.astro` and `src/pages/index.astro`
+- Bio / quick links: `src/components/Hero.astro`
+- PhD recruitment callout: `src/pages/index.astro`
+- Contact info / links: `src/pages/contact.astro`
 - Replace `public/headshot.jpg` and `public/cv.pdf` with real files (keep the same names).
 
 ## Deploy
@@ -871,12 +1054,12 @@ Static output in `dist/`. Deploy to Vercel or GitHub Pages (custom domain at roo
 ```bash
 export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh";
 rm -rf dist && npm run build
-for f in index research/index teaching/index cv/index; do
+for f in index research/index teaching/index cv/index contact/index; do
   test -f "dist/$f.html" && echo "OK dist/$f.html" || echo "MISSING dist/$f.html"
 done
 ```
 
-Expected: build exits 0 and prints four `OK` lines, no `MISSING`.
+Expected: build exits 0 and prints five `OK` lines, no `MISSING`.
 
 - [ ] **Step 3: Commit**
 
@@ -898,7 +1081,10 @@ Expected: pushes all commits to `origin/main`.
 ## Done criteria
 
 - `npm run build` succeeds from a clean tree.
-- All four pages (`/`, `/research`, `/teaching`, `/cv`) build and contain expected content.
-- Site styled in OU crimson, Inter + Public Sans, hero + three research cards on home.
-- Placeholders in place for headshot, CV PDF, Google Scholar URL, and teaching courses, each marked with a `TODO(user)` or documented in the README.
+- All five pages (`/`, `/research`, `/teaching`, `/cv`, `/contact`) build and contain expected content.
+- Site styled in OU crimson + cream, Inter + Public Sans, image-left hero with outlined buttons, three research cards, PhD recruitment callout on home.
+- Bio includes education and framing; hero links point to the real Google Scholar, CV, email, and LinkedIn.
+- Research page lists the 10 publications pulled from Google Scholar, grouped by stream; venues marked `TODO(user)` are confirmed or flagged.
+- Contact page shows office address and professional links.
+- Placeholders remain only for headshot, CV PDF, and teaching courses, each marked `TODO(user)` or documented in the README.
 - All work committed and pushed to `origin/main`.
