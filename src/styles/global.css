@@ -142,3 +142,56 @@ h1 { font-size: 2.2rem; }
 @media (max-width: 760px) {
   .interest-grid { grid-template-columns: 1fr; }
 }
+
+/* Hero */
+.hero {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 48px 0 24px;
+}
+.profile-image {
+  width: 230px;
+  height: 230px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+.profile-image:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
+.name-headline { font-size: 2.5rem; font-weight: 600; color: var(--primary); letter-spacing: -0.01em; margin: 0 0 0.5rem; }
+.title-headline { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; color: var(--text-secondary); margin: 0 0 1.25rem; }
+.bio-text { font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin: 0 0 1.5rem; }
+.btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.scholar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--primary);
+  padding: 6px 14px;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+.scholar-btn:hover { background: var(--primary); color: #fff; }
+
+/* PhD recruitment callout */
+.callout {
+  background: var(--accent);
+  border: 1px solid var(--accent-line);
+  border-left: 4px solid var(--primary);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  font-size: 0.97rem;
+  color: #5c4a1f;
+}
+.callout strong { color: var(--primary); }
+
+@media (max-width: 760px) {
+  .hero { flex-direction: column; text-align: center; }
+  .btn-row { justify-content: center; }
+}
