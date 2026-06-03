@@ -176,15 +176,19 @@ git commit -m "chore: scaffold Astro project"
 
 ```css
 :root {
-  --crimson: #841617;
-  --crimson-dark: #5e1011;
-  --cream: #FDF9D8;
-  --ink: #1a1a1a;
-  --muted: #555;
-  --faint: #777;
-  --rule: #e6e6e6;
-  --bg: #ffffff;
-  --maxw: 820px;
+  --primary: #841617;            /* OU crimson */
+  --primary-hover: #a51c1d;
+  --primary-light: rgba(132, 22, 23, 0.05);
+  --accent: #FDF9D8;             /* OU cream */
+  --accent-line: #e7cf83;
+  --text-color: #333333;
+  --text-secondary: #555555;
+  --text-light: #777777;
+  --border-color: #eeeeee;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 3px 10px rgba(0, 0, 0, 0.08);
+  --radius: 8px;
+  --maxw: 960px;
 }
 
 * { box-sizing: border-box; }
@@ -193,88 +197,127 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--ink);
+  background: #fff;
+  color: var(--text-color);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 17px;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Public Sans', 'Inter', sans-serif;
+  font-weight: 600;
+  color: var(--primary);
   line-height: 1.2;
 }
 
-a { color: var(--crimson); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-hover); }
 
-.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
 
 /* Nav */
-.site-nav {
-  border-bottom: 1px solid var(--rule);
-  background: var(--bg);
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  padding: 12px 0;
 }
-.site-nav .wrap {
+.navbar .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
-.site-nav .brand {
+.navbar-brand {
   font-family: 'Public Sans', sans-serif;
-  font-weight: 700;
-  color: var(--ink);
-  font-size: 1.1rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--primary);
 }
-.site-nav .links { display: flex; gap: 1.25rem; }
-.site-nav .links a {
-  color: var(--ink);
+.navbar-nav { display: flex; gap: 0.25rem; }
+.nav-link {
+  color: var(--text-color);
   font-weight: 500;
-  font-size: 0.98rem;
+  padding: 8px 18px;
+  position: relative;
 }
-.site-nav .links a[aria-current="page"] { color: var(--crimson); }
+.nav-link:hover { color: var(--primary); }
+.nav-link[aria-current="page"] { color: var(--primary); font-weight: 600; }
+.nav-link[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 18px; right: 18px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+}
 
 /* Footer */
 .site-footer {
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--border-color);
   margin-top: 4rem;
   padding: 2rem 0;
-  color: var(--faint);
+  color: var(--text-light);
   font-size: 0.9rem;
 }
 
-/* Sections */
-section { margin: 3rem 0; }
-.section-title {
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: 0.95rem;
-  color: var(--crimson);
-  margin-bottom: 1.25rem;
+/* Page headings + sections */
+h1 { font-size: 2.2rem; }
+.section { padding: 24px 0 8px; }
+.section-heading {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--primary);
+  padding-bottom: 0.5rem;
+  margin: 0 0 2rem;
+  border-bottom: 2px solid var(--primary);
 }
 
 /* Research cards */
-.card-grid {
+.interest-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
-.research-card {
-  border: 1px solid var(--rule);
-  border-top: 3px solid var(--crimson);
-  border-radius: 6px;
-  padding: 1.25rem;
+.interest-card {
+  position: relative;
   background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem 3.5rem;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
-.research-card h3 { margin: 0 0 0.5rem; font-size: 1.1rem; }
-.research-card p { margin: 0 0 1rem; color: var(--muted); font-size: 0.97rem; }
+.interest-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--primary);
+  transition: height 0.3s ease;
+}
+.interest-card:hover { transform: translateY(-5px); box-shadow: var(--card-shadow-hover); }
+.interest-card:hover::before { height: 5px; }
+.interest-title { font-size: 1.25rem; font-weight: 600; color: var(--primary); margin: 0 0 0.75rem; }
+.interest-text { font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin: 0; }
+.view-papers-link {
+  position: absolute;
+  bottom: 1.75rem; left: 1.75rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.view-papers-link:hover { color: var(--primary-hover); }
 
-@media (max-width: 680px) {
-  .card-grid { grid-template-columns: 1fr; }
+@media (max-width: 760px) {
+  .interest-grid { grid-template-columns: 1fr; }
 }
 ```
 
@@ -292,12 +335,12 @@ const links = [
 const norm = (p) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
 const current = norm(path);
 ---
-<nav class="site-nav">
-  <div class="wrap">
-    <a class="brand" href="/">JeongJin Kim</a>
-    <div class="links">
+<nav class="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">JeongJin Kim</a>
+    <div class="navbar-nav">
       {links.map((l) => (
-        <a href={l.href} aria-current={norm(l.href) === current ? 'page' : undefined}>{l.label}</a>
+        <a class="nav-link" href={l.href} aria-current={norm(l.href) === current ? 'page' : undefined}>{l.label}</a>
       ))}
     </div>
   </div>
@@ -330,11 +373,11 @@ const path = Astro.url.pathname;
   </head>
   <body>
     <Nav path={path} />
-    <main class="wrap">
+    <main class="container">
       <slot />
     </main>
     <footer class="site-footer">
-      <div class="wrap">&copy; {new Date().getFullYear()} JeongJin Kim</div>
+      <div class="container">&copy; {new Date().getFullYear()} JeongJin Kim</div>
     </footer>
   </body>
 </html>
@@ -358,7 +401,7 @@ import Layout from '../layouts/Layout.astro';
 ```bash
 export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh";
 npm run build
-grep -q 'class="site-nav"' dist/index.html && grep -q 'JeongJin Kim' dist/index.html && echo "NAV OK"
+grep -q 'class="navbar"' dist/index.html && grep -q 'JeongJin Kim' dist/index.html && echo "NAV OK"
 ```
 
 Expected: build exits 0 and prints `NAV OK`.
@@ -415,10 +458,10 @@ export const streams = [
 ---
 const { id, title, short } = Astro.props;
 ---
-<article class="research-card">
-  <h3>{title}</h3>
-  <p>{short}</p>
-  <a href={`/research#${id}`}>View {title} papers &rarr;</a>
+<article class="interest-card">
+  <h3 class="interest-title">{title}</h3>
+  <p class="interest-text">{short}</p>
+  <a class="view-papers-link" href={`/research#${id}`}>View papers &rarr;</a>
 </article>
 ```
 
@@ -433,24 +476,22 @@ const {
 } = Astro.props;
 ---
 <section class="hero">
-  <img class="hero-photo" src="/headshot.jpg" alt="JeongJin Kim" width="160" height="160" />
+  <img class="profile-image" src="/headshot.jpg" alt="JeongJin Kim" width="230" height="230" />
   <div class="hero-body">
-    <h1>JeongJin Kim</h1>
-    <h2 class="hero-title">Assistant Professor, Department of Psychology | University of Oklahoma</h2>
-    <p>
+    <h1 class="name-headline">JeongJin Kim</h1>
+    <div class="title-headline">Assistant Professor, Department of Psychology &middot; University of Oklahoma</div>
+    <p class="bio-text">
       I study the cognitive, affective, and social processes that shape individuals’
       job performance and well-being at work, with an emphasis on person–situation
       interactions, job attitudes and emotions, and individual work performance behavior.
       My research uses surveys, vignette experiments, and experience sampling and
       longitudinal methods to understand how employees think, feel, and act in the workplace.
     </p>
-    <p class="hero-links">
-      <a href={scholarUrl}>Google Scholar</a>
-      <span aria-hidden="true"> &middot; </span>
-      <a href={cvUrl}>CV</a>
-      <span aria-hidden="true"> &middot; </span>
-      <a href={`mailto:${email}`}>Email</a>
-    </p>
+    <div class="btn-row">
+      <a class="scholar-btn" href={scholarUrl}>Google Scholar</a>
+      <a class="scholar-btn" href={cvUrl}>CV</a>
+      <a class="scholar-btn" href={`mailto:${email}`}>Email</a>
+    </div>
   </div>
 </section>
 ```
@@ -463,23 +504,41 @@ Add to the end of `src/styles/global.css`:
 /* Hero */
 .hero {
   display: flex;
-  gap: 1.75rem;
-  align-items: flex-start;
-  margin: 3rem 0;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 48px 0 24px;
 }
-.hero-photo {
+.profile-image {
+  width: 230px;
+  height: 230px;
+  flex-shrink: 0;
   border-radius: 8px;
   object-fit: cover;
-  flex-shrink: 0;
-  border: 1px solid var(--rule);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
 }
-.hero-body h1 { font-size: 2.2rem; margin: 0 0 0.25rem; letter-spacing: -0.02em; }
-.hero-title { font-size: 1.05rem; color: var(--muted); font-weight: 600; margin: 0 0 1.25rem; }
-.hero-links { font-weight: 500; }
-.hero-links a { color: var(--crimson); }
+.profile-image:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
+.name-headline { font-size: 2.5rem; font-weight: 600; color: var(--primary); letter-spacing: -0.01em; margin: 0 0 0.5rem; }
+.title-headline { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; color: var(--text-secondary); margin: 0 0 1.25rem; }
+.bio-text { font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin: 0 0 1.5rem; }
+.btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.scholar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--primary);
+  padding: 6px 14px;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+.scholar-btn:hover { background: var(--primary); color: #fff; }
 
-@media (max-width: 680px) {
-  .hero { flex-direction: column; }
+@media (max-width: 760px) {
+  .hero { flex-direction: column; text-align: center; }
+  .btn-row { justify-content: center; }
 }
 ```
 
@@ -497,9 +556,9 @@ const scholarUrl = 'https://scholar.google.com/';
 ---
 <Layout title="JeongJin Kim | I-O Psychology, University of Oklahoma">
   <Hero scholarUrl={scholarUrl} />
-  <section>
-    <h2 class="section-title">Research Focus Areas</h2>
-    <div class="card-grid">
+  <section class="section">
+    <h2 class="section-heading">Research Focus Areas</h2>
+    <div class="interest-grid">
       {streams.map((s) => <ResearchCard id={s.id} title={s.title} short={s.short} />)}
     </div>
   </section>
@@ -567,13 +626,13 @@ Add to the end of `src/styles/global.css`:
 ```css
 /* Research page */
 .stream { margin: 2.5rem 0; }
-.stream h2 { font-size: 1.35rem; margin: 0 0 0.5rem; }
-.stream > p { color: var(--muted); margin: 0 0 1rem; }
+.stream h2 { font-size: 1.35rem; margin: 0 0 0.5rem; color: var(--primary); }
+.stream > p { color: var(--text-secondary); margin: 0 0 1rem; }
 .pub-list { list-style: none; padding: 0; margin: 0; }
-.pub { padding: 0.6rem 0; border-bottom: 1px solid var(--rule); font-size: 0.97rem; }
+.pub { padding: 0.6rem 0; border-bottom: 1px solid var(--border-color); font-size: 0.97rem; }
 .pub-authors { font-weight: 500; }
-.pub-venue { font-style: italic; color: var(--muted); }
-.pub-empty { color: var(--faint); font-style: italic; }
+.pub-venue { font-style: italic; color: var(--text-secondary); }
+.pub-empty { color: var(--text-light); font-style: italic; }
 ```
 
 - [ ] **Step 4: Write `src/pages/research.astro`**

@@ -34,14 +34,25 @@ justinfrake.com design features being matched:
 
 ## Visual design
 
-- **Fonts:** Inter (body) + Public Sans, loaded from Google Fonts.
+Closely matches justinfrake.com's visual treatment, confirmed against an approved
+browser mockup, restyled in OU colors.
+
+- **Fonts:** Inter (body) + Public Sans (headings) — the same pairing Frake uses.
+  Loaded from Google Fonts.
 - **Colors:**
-  - Primary: OU crimson `#841617`
-  - Accent: OU cream `#FDF9D8`
-  - Text: `#1a1a1a` on white `#ffffff`
-  - Structure grays: `#555`, `#777`, `#eee`
+  - Primary: OU crimson `#841617` (hover `#a51c1d`)
+  - Accent: OU cream `#FDF9D8` (used for soft accents; no gold/maize)
+  - Text: `#333` body, `#555` secondary, `#777` light, on white `#ffffff`
+  - Borders/structure: `#eee`
+- **Headings** render in crimson (Frake renders his in Michigan navy).
+- **Hero:** image-left / text-right; name in crimson (`name-headline`, 2.5rem);
+  quick links as **outlined buttons** that fill crimson on hover (Frake's
+  `scholar-btn` pattern), not plain text links.
+- **Section heading** ("Research Focus Areas") with a 2px crimson underline.
+- **Research cards:** white, rounded, soft drop shadow, a crimson top accent bar
+  that grows on hover, and a hover lift; "View papers" link anchored at the bottom.
 - **Tone:** minimal, professional, whitespace-forward, card-based research grouping.
-- **Responsive:** cards stack on mobile; nav remains usable on small screens.
+- **Responsive:** hero stacks and centers; cards collapse to one column on mobile.
 
 ## Site structure
 
