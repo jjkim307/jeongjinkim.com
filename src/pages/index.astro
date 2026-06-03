@@ -6,15 +6,16 @@ import { streams } from '../data/research.js';
 ---
 <Layout title="JeongJin Kim | I-O Psychology, University of Oklahoma">
   <Hero />
-  <aside class="callout">
-    <strong>Prospective Ph.D. students:</strong> I am recruiting a Ph.D. student in
-    I-O Psychology to begin Fall 2026. I welcome applications from conscientious,
-    curious, and proactive candidates. <a href="/contact">Get in touch</a>.
-  </aside>
   <section class="section">
-    <h2 class="section-heading">Research Focus Areas</h2>
-    <div class="interest-grid">
-      {streams.map((s) => <ResearchCard id={s.id} title={s.title} short={s.short} />)}
-    </div>
+    <p class="section-label">Research</p>
+    {streams.map((s) => <ResearchCard id={s.id} title={s.title} short={s.short} />)}
+  </section>
+  <section class="section">
+    <p class="section-label">Prospective Students</p>
+    <p class="note">
+      <strong>Recruiting a Ph.D. student in I–O Psychology for Fall 2026.</strong>
+      I welcome applications from conscientious, curious, and proactive candidates.
+      <a href="/contact">Get in touch</a>.
+    </p>
   </section>
 </Layout>

@@ -7,24 +7,22 @@ const {
 } = Astro.props;
 ---
 <section class="hero">
-  <img class="profile-image" src="/headshot.jpg" alt="JeongJin Kim" width="230" height="230" />
-  <div class="hero-body">
-    <h1 class="name-headline">JeongJin Kim</h1>
-    <div class="title-headline">Assistant Professor, Department of Psychology &middot; University of Oklahoma</div>
-    <p class="bio-text">
-      I am an Assistant Professor of Industrial–Organizational Psychology at the
-      University of Oklahoma. I study what shapes individuals' performance behavior
-      and well-being in the workplace — and the why's and how's behind it — with an
-      emphasis on person–situation interactions, job attitudes and emotions, and
-      individual work performance behavior. I hold a B.A. from the University of
-      Wisconsin–Madison, an M.A. from Yonsei University, and a Ph.D. from George
-      Mason University.
-    </p>
-    <div class="btn-row">
-      <a class="scholar-btn" href={scholarUrl}>Google Scholar</a>
-      <a class="scholar-btn" href={cvUrl}>CV</a>
-      <a class="scholar-btn" href={`mailto:${email}`}>Email</a>
-      <a class="scholar-btn" href={linkedinUrl}>LinkedIn</a>
-    </div>
+  <h1 class="name-headline">JeongJin Kim</h1>
+  <div class="title-headline">Assistant Professor of Industrial–Organizational Psychology, University of Oklahoma</div>
+  <p class="bio-text">
+    I study what shapes individuals' performance behavior and well-being in the
+    workplace — and the why's and how's behind it — with an emphasis on
+    person–situation interactions, job attitudes and emotions, and individual work
+    performance behavior.
+  </p>
+  <p class="bio-text">
+    I hold a B.A. from the University of Wisconsin–Madison, an M.A. from Yonsei
+    University, and a Ph.D. from George Mason University.
+  </p>
+  <div class="hero-links">
+    <a href={scholarUrl}>Google Scholar</a>
+    <a href={cvUrl}>CV</a>
+    <a href={`mailto:${email}`}>Email</a>
+    <a href={linkedinUrl}>LinkedIn</a>
   </div>
 </section>
