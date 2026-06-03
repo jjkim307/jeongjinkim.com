@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// TODO(user): replace with real courses (number, title, level, term).
+const courses = [
+  { number: 'PSY 0000', title: 'Course title', level: 'Undergraduate', term: '' },
+];
+---
+<Layout title="Teaching | JeongJin Kim">
+  <h1>Teaching</h1>
+  <p>Courses I teach at the University of Oklahoma.</p>
+  <ul class="pub-list">
+    {courses.map((c) => (
+      <li class="pub">
+        <span class="pub-authors">{c.number}</span> — {c.title}
+        <span class="pub-venue">{c.level}{c.term ? `, ${c.term}` : ''}</span>
+      </li>
+    ))}
+  </ul>
+</Layout>
