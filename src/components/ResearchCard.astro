@@ -1,0 +1,8 @@
+---
+const { id, title, short } = Astro.props;
+---
+<article class="interest-card">
+  <h3 class="interest-title">{title}</h3>
+  <p class="interest-text">{short}</p>
+  <a class="view-papers-link" href={`/research#${id}`}>View papers &rarr;</a>
+</article>

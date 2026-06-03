@@ -1,0 +1,22 @@
+---
+const { path = '' } = Astro.props;
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/research', label: 'Research' },
+  { href: '/teaching', label: 'Teaching' },
+  { href: '/cv', label: 'CV' },
+  { href: '/contact', label: 'Contact' },
+];
+const norm = (p) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
+const current = norm(path);
+---
+<nav class="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">JeongJin Kim</a>
+    <div class="navbar-nav">
+      {links.map((l) => (
+        <a class="nav-link" href={l.href} aria-current={norm(l.href) === current ? 'page' : undefined}>{l.label}</a>
+      ))}
+    </div>
+  </div>
+</nav>

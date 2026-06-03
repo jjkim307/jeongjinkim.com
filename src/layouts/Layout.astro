@@ -1,0 +1,31 @@
+---
+import Nav from '../components/Nav.astro';
+import '../styles/global.css';
+const { title = 'JeongJin Kim', description = 'JeongJin Kim, Assistant Professor of Psychology (I-O), University of Oklahoma.' } = Astro.props;
+const path = Astro.url.pathname;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Public+Sans:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Nav path={path} />
+    <main class="container">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container">&copy; {new Date().getFullYear()} JeongJin Kim</div>
+    </footer>
+  </body>
+</html>

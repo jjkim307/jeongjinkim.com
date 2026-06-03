@@ -1,0 +1,8 @@
+---
+const { authors, year, title, venue, url } = Astro.props;
+---
+<li class="pub">
+  <span class="pub-authors">{authors}</span> ({year}).
+  {url ? <a href={url}>{title}</a> : <span class="pub-title">{title}</span>}
+  {venue && <span class="pub-venue">{venue}.</span>}
+</li>

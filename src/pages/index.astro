@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ResearchCard from '../components/ResearchCard.astro';
+import { streams } from '../data/research.js';
+---
+<Layout title="JeongJin Kim | I-O Psychology, University of Oklahoma">
+  <Hero />
+  <aside class="callout">
+    <strong>Prospective Ph.D. students:</strong> I am recruiting a Ph.D. student in
+    I-O Psychology to begin Fall 2026. I welcome applications from conscientious,
+    curious, and proactive candidates. <a href="/contact">Get in touch</a>.
+  </aside>
+  <section class="section">
+    <h2 class="section-heading">Research Focus Areas</h2>
+    <div class="interest-grid">
+      {streams.map((s) => <ResearchCard id={s.id} title={s.title} short={s.short} />)}
+    </div>
+  </section>
+</Layout>
