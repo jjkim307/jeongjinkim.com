@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PublicationItem from '../components/PublicationItem.astro';
+import { streams } from '../data/research.js';
+import { publications } from '../data/publications.js';
+
+const byStream = (id) => publications.filter((p) => p.stream === id);
+---
+<Layout title="Research | JeongJin Kim">
+  <h1>Research</h1>
+  {streams.map((s) => {
+    const pubs = byStream(s.id);
+    return (
+      <div class="stream" id={s.id}>
+        <h2>{s.title}</h2>
+        <p>{s.description}</p>
+        {pubs.length > 0 ? (
+          <ul class="pub-list">
+            {pubs.map((p) => (
+              <PublicationItem authors={p.authors} year={p.year} title={p.title} venue={p.venue} url={p.url} />
+            ))}
+          </ul>
+        ) : (
+          <p class="pub-empty">Publications coming soon.</p>
+        )}
+      </div>
+    );
+  })}
+</Layout>

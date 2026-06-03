@@ -195,3 +195,13 @@ h1 { font-size: 2.2rem; }
   .hero { flex-direction: column; text-align: center; }
   .btn-row { justify-content: center; }
 }
+
+/* Research page */
+.stream { margin: 2.5rem 0; }
+.stream h2 { font-size: 1.35rem; margin: 0 0 0.5rem; color: var(--primary); }
+.stream > p { color: var(--text-secondary); margin: 0 0 1rem; }
+.pub-list { list-style: none; padding: 0; margin: 0; }
+.pub { padding: 0.6rem 0; border-bottom: 1px solid var(--border-color); font-size: 0.97rem; }
+.pub-authors { font-weight: 500; }
+.pub-venue { font-style: italic; color: var(--text-secondary); }
+.pub-empty { color: var(--text-light); font-style: italic; }
