@@ -1,25 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const email = 'jjkim@ou.edu';
-const links = [
-  { label: 'Google Scholar', url: 'https://scholar.google.com/citations?user=3312EoQAAAAJ&hl=en' },
-  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/jeongjinjjkim' },
-  { label: 'OU Faculty Page', url: 'https://www.ou.edu/cas/psychology/people/faculty/jeongjin-kim' },
-];
 ---
-<Layout title="Contact | JeongJin Kim">
-  <h1>Contact</h1>
-  <p class="contact-line"><strong>Email:</strong> <a href={`mailto:${email}`}>{email}</a></p>
-  <p class="contact-line">
-    <strong>Office:</strong> Dale Hall Tower, Room 737<br />
-    Department of Psychology, University of Oklahoma<br />
+<Layout title="Contact | JeongJin Kim, Ph.D.">
+  <p>
+    Department of Psychology, The University of Oklahoma<br />
+    Dale Hall Tower, Room 737<br />
     445 W. Lindsey St., Norman, OK 73019
   </p>
-  <p class="contact-line"><strong>Elsewhere:</strong></p>
-  <ul class="pub-list">
-    {links.map((l) => (
-      <li class="pub"><a href={l.url}>{l.label}</a></li>
-    ))}
-  </ul>
+  <p>
+    Email: <a href="mailto:jjkim@ou.edu">jjkim [at] ou [dot] edu</a>
+  </p>
+  <p>
+    Want to learn how to pronounce my first name, JeongJin?
+    <!-- TODO(user): add the pronunciation link from your old site here -->
+  </p>
 </Layout>

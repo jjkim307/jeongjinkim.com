@@ -1,21 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import ResearchCard from '../components/ResearchCard.astro';
-import { streams } from '../data/research.js';
 ---
-<Layout title="JeongJin Kim | I-O Psychology, University of Oklahoma">
-  <Hero />
-  <section class="section">
-    <p class="section-label">Research</p>
-    {streams.map((s) => <ResearchCard id={s.id} title={s.title} short={s.short} />)}
-  </section>
-  <section class="section">
-    <p class="section-label">Prospective Students</p>
-    <p class="note">
-      <strong>Recruiting a Ph.D. student in I–O Psychology for Fall 2026.</strong>
-      I welcome applications from conscientious, curious, and proactive candidates.
-      <a href="/contact">Get in touch</a>.
-    </p>
-  </section>
+<Layout title="JeongJin Kim, Ph.D.">
+  <div class="bio-row">
+    <img class="headshot" src="/headshot.jpg" alt="JeongJin Kim" />
+    <div>
+      <p class="greeting">Hi, I'm JeongJin.</p>
+      <p>
+        I am an industrial-organizational (I-O) psychologist and an Assistant Professor of
+        I-O Psychology at the University of Oklahoma. I earned my bachelor's degree from the
+        University of Wisconsin–Madison, my master's degree from Yonsei University, and my
+        PhD from George Mason University.
+      </p>
+      <p>
+        Broadly speaking, I am interested in what shapes individuals' performance behavior and
+        well-being in the workplace, as well as the why's and how's. More specifically, my work
+        primarily focuses on these three interconnected areas:
+      </p>
+      <ul>
+        <li><strong>Person–situation interactions</strong>, with a particular emphasis on situation (e.g., situational strength and substance characteristics);</li>
+        <li><strong>Job attitudes and affect/emotions</strong> (e.g., work engagement, job boredom); and</li>
+        <li><strong>Individual work performance behavior</strong> (e.g., task performance, counterproductive work behavior, and organizational citizenship behavior).</li>
+      </ul>
+      <p>
+        To learn more about my research, click <a href="/research">here</a>. For a list of my
+        publications, please visit my
+        <a href="https://scholar.google.com/citations?user=3312EoQAAAAJ&hl=en">Google Scholar profile</a>.
+      </p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Prospective PhD students:</strong> I plan to admit a PhD student in I-O Psychology
+    for Fall 2026. I welcome applications from conscientious, curious, and proactive students
+    who are active learners and problem-solvers.
+  </div>
+
+  <p class="located">Located in Norman, OK</p>
 </Layout>

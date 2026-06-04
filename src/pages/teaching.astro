@@ -1,20 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-// TODO(user): replace with real courses (number, title, level, term).
-const courses = [
-  { number: 'PSY 0000', title: 'Course title', level: 'Undergraduate', term: '' },
-];
 ---
-<Layout title="Teaching | JeongJin Kim">
-  <h1>Teaching</h1>
-  <p>Courses I teach at the University of Oklahoma.</p>
-  <ul class="pub-list">
-    {courses.map((c) => (
-      <li class="pub">
-        <span class="pub-authors">{c.number}</span> — {c.title}
-        <span class="pub-venue">{c.level}{c.term ? `, ${c.term}` : ''}</span>
-      </li>
-    ))}
-  </ul>
+<Layout title="Teaching | JeongJin Kim, Ph.D.">
+  <div class="course">
+    <h2>PSY 2003 — Understanding Statistics</h2>
+    <p>
+      This course is an introductory applied statistics course that focuses on two aspects of
+      one's statistics journey: (a) fostering one's statistical literacy (i.e., making sense of
+      data and the statistics used to interpret them) and (b) learning about descriptive and
+      inferential statistical methods. Topics include, but are not limited to, research design,
+      measurement, sampling procedures, standard normal distribution, correlation, regression,
+      probability, sampling distributions, and hypothesis testing/error/power.
+    </p>
+  </div>
+
+  <div class="course">
+    <h2>PSY 3753 — Introduction to Industrial-Organizational Psychology</h2>
+    <p>
+      This course covers psychological theories and their practical applications to the
+      workplace. The course covers issues of critical relevance to the well-being of individuals
+      and organizational performance. Topics include, but are not limited to, history of I-O,
+      research methods in I-O, criteria & job analysis, predictors (psychological assessments),
+      personnel decisions, organizational learning/development, performance management,
+      leadership, teams & teamwork, organizational change, affect, attitudes, and behavior at
+      work, work motivation, and workplace psychological health.
+    </p>
+  </div>
 </Layout>
