@@ -44,10 +44,14 @@ Crimson is used sparingly and only for: the dateline, the active nav tab, links,
 ## Pages
 
 **Home (`/`, tab label "Bio")**
-- Headline: "Why people work the way they do — and how work, in turn, shapes them." (h1, regular weight)
-- Existing bio paragraphs, opening paragraph with a crimson **drop cap** on the first letter.
+- No headline. The page opens directly with the bio, first paragraph carrying a crimson **drop cap**.
+- Body text verbatim from the user (2026-07-12), replacing the committed copy:
+  - "I am an industrial-organizational (I-O) psychologist and an Assistant Professor of Psychology at the University of Oklahoma."
+  - "I am interested in what shapes employees' performance behavior and well-being, as well as the why's and how's. Specifically, my work primarily focuses on these three interconnected areas:"
+  - The three areas, set as a list with crimson Roman numerals (matching the Research page): I. "Person–situation interactions, with a particular emphasis on situation (e.g., situational strength, substance characteristics)," II. "Job attitudes and affect/emotions (e.g., work engagement, job boredom), and" III. "Individual work performance behavior (e.g., counterproductive work behavior, organizational citizenship behavior)"
 - Small-caps crimson links: "Research →" and "Google Scholar →".
-- Right column: portrait `headshot.jpg` at ~230px, subtle `grayscale(25%)` filter; italic caption beneath carrying "Norman, Oklahoma" and the Fall 2026 PhD-student callout ("Admitting a PhD student for Fall 2026," linked or expanded with the existing welcome sentence).
+- Prospective-students note under a crimson small-caps label "Prospective PhD Students": "I do not plan to admit a PhD student for Fall 2027." Set as a quiet single-line note (no box needed given its brevity).
+- Right column: portrait `headshot.jpg` at ~230px, subtle `grayscale(25%)` filter; italic caption beneath reading "Norman, Oklahoma" only (no PhD callout in the caption).
 
 **Research (`/research`)**
 - Page title + one-sentence intro (existing text).
@@ -68,7 +72,7 @@ Crimson is used sparingly and only for: the dateline, the active nav tab, links,
 - Same Astro project at `~/projects/jeongjinkim.com`; same five routes; same Vercel auto-deploy pipeline (push to `main` → production; branches → preview URLs).
 - Work happens on a fresh branch off `main` (off commit `8100770`).
 - **Discard the current uncommitted WIP** (the abandoned hero redesign) **except**: `public/cv.pdf` (real CV) and `public/portrait.jpg` (new asset; keep in repo even though the design uses `headshot.jpg`).
-- Files rewritten: `src/layouts/Layout.astro`, `src/components/Nav.astro` (becomes the masthead + dateline), `src/styles/global.css`, and the five files in `src/pages/`. Content text is preserved as-is from the committed versions (plus the "the University of Oklahoma" article fix).
+- Files rewritten: `src/layouts/Layout.astro`, `src/components/Nav.astro` (becomes the masthead + dateline), `src/styles/global.css`, and the five files in `src/pages/`. Content text is preserved as-is from the committed versions (plus the "the University of Oklahoma" article fix), except the Home page, whose text is replaced with the user-supplied copy above — including the new "not admitting for Fall 2027" note, which supersedes the Fall 2026 recruitment callout everywhere it appears.
 - Add dependency `@fontsource/source-serif-4`; import weights 400/600 + italic in the layout. No other new dependencies. No client-side JavaScript.
 - Verify on the Vercel preview URL before merging to `main`.
 
