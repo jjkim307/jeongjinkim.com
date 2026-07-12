@@ -13,3 +13,4 @@ dist/
 # Astro generated
 src/env.d.ts
 .vercel
+.superpowers/
