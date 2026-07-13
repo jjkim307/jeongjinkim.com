@@ -23,7 +23,7 @@ Rebuild jeongjinkim.com to follow https://www.jinalee.org/ as the model in templ
 
 ### Design tokens (model structure, warmed per user revision 2026-07-12)
 
-The model's cool gray-blue neutrals are shifted slightly warm, and the slate/navy accent is replaced by OU crimson — used sparingly and **never as a text color**. Crimson appears only on non-text elements: the active-tab underline, the primary (CV) button background, link underlines (link text stays ink), the left edge of the PhD-note panel, and hover states of those same elements. Section labels, years, and all other type stay in the neutral tones.
+The model's cool gray-blue neutrals are shifted slightly warm, and the slate/navy accent is replaced by OU crimson — used sparingly and **never as a text color**. Crimson appears only on non-text elements: the active-tab underline, the primary (Email) button background, link underlines (link text stays ink), the left edge of the PhD-note panel, and hover states of those same elements. Section labels, years, and all other type stay in the neutral tones.
 
 | Token | Value |
 |---|---|
@@ -44,7 +44,7 @@ Fonts: **Inter** (UI/body sans), **Source Serif 4** (name, headings, hero statem
 Content sources: the committed pages at `8100770`, the user's revised Home copy (2026-07-12), and `public/cv.pdf` (last updated June 4, 2026). The "not admitting for Fall 2027" note supersedes the old Fall 2026 recruitment callout everywhere.
 
 **Home (`/`)** — one long page like the model:
-1. **Hero**: "JeongJin Kim, Ph.D." (serif) / "Industrial-Organizational Psychologist" / "Assistant Professor of Psychology" / "The University of Oklahoma" / one-line serif-italic statement: "I study what shapes employees' performance behavior and well-being in the workplace." / buttons, in order: Email, CV (crimson fill), Google Scholar, LinkedIn / `headshot.jpg` right, ~270×331 (settled through mockup iterations, 2026-07-12), rounded with soft shadow. LinkedIn URL: https://www.linkedin.com/in/jeongjinjjkim/ (also in the footer next to Google Scholar).
+1. **Hero**: "JeongJin Kim, Ph.D." (serif) / "Industrial-Organizational Psychologist" / "Assistant Professor of Psychology" / "The University of Oklahoma" / one-line serif-italic statement: "I study what shapes employees' performance behavior and well-being in the workplace." / buttons, in order: Email (crimson fill), CV, Google Scholar, LinkedIn / `headshot.jpg` right, ~270×331 (settled through mockup iterations, 2026-07-12), rounded with soft shadow. LinkedIn URL: https://www.linkedin.com/in/jeongjinjjkim/ (also in the footer next to Google Scholar).
 2. **About**: the "why's and how's" paragraph and the three interconnected areas as a list. The former first sentence ("I am an industrial-organizational (I-O) psychologist and an Assistant Professor of Psychology at the University of Oklahoma.") is removed — the hero title lines now carry it.
 3. **Prospective PhD students** notice in a light accent panel: "I do not plan to admit a PhD student for Fall 2027."
 4. **Publications**: all nine peer-reviewed publications from the CV, by recency, APA format, `Kim, J. J.` bolded, year in mono, DOI ↗ links. (This replaces the old research page's two venue-TODO entries; the CV has full citations.) **No Work in Progress and no R&R/under-review section** — published work only (user decision 2026-07-12; the R&R entries still appear inside the CV tab's transcription, since that reproduces the PDF).
