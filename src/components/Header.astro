@@ -1,0 +1,54 @@
+---
+const { lang = 'en', active = 'home', altPath = '/ko/' } = Astro.props;
+const prefix = lang === 'ko' ? '/ko' : '';
+const tabs = [
+  { key: 'home', label: 'Home', href: lang === 'ko' ? '/ko/' : '/' },
+  { key: 'research', label: 'Research', href: `${prefix}/research/` },
+  { key: 'teaching', label: 'Teaching', href: `${prefix}/teaching/` },
+  { key: 'cv', label: 'CV', href: `${prefix}/cv/` },
+];
+---
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logotype" href={lang === 'ko' ? '/ko/' : '/'}>{lang === 'ko' ? '김정진' : 'JeongJin Kim'}</a>
+    <div class="header-right">
+      <div class="fs-ctl" role="group" aria-label={lang === 'ko' ? '글자 크기' : 'Text size'}>
+        <span class="fs-label">{lang === 'ko' ? '글자 크기' : 'Text size'}</span>
+        <button id="fs-dec" type="button" aria-label="Decrease text size">A&minus;</button>
+        <button id="fs-reset" type="button" aria-label="Reset text size"><span id="fs-value">100%</span></button>
+        <button id="fs-inc" type="button" aria-label="Increase text size">A+</button>
+      </div>
+      <a class="lang-pill" href={altPath} rel="alternate" hreflang={lang === 'ko' ? 'en' : 'ko'}>{lang === 'ko' ? 'ENG' : 'KOR'}</a>
+      <nav aria-label="Main">
+        {tabs.map((t) => (
+          <a class:list={['tab', { on: active === t.key }]} href={t.href} aria-current={active === t.key ? 'page' : undefined}>{t.label}</a>
+        ))}
+      </nav>
+    </div>
+  </div>
+</header>
+<script is:inline>
+  (function () {
+    var KEY = 'jk-font-scale';
+    var BASE = 135, MIN = 0.75, MAX = 1.5, STEP = 0.1;
+    function get() {
+      try {
+        var s = parseFloat(localStorage.getItem(KEY));
+        return s >= MIN && s <= MAX ? s : 1;
+      } catch (e) { return 1; }
+    }
+    function apply(s) {
+      document.documentElement.style.fontSize = BASE * s + '%';
+      document.getElementById('fs-value').textContent = Math.round(s * 100) + '%';
+      try { localStorage.setItem(KEY, String(s)); } catch (e) {}
+    }
+    function nudge(d) {
+      var s = Math.round((get() + d * STEP) * 100) / 100;
+      apply(Math.min(MAX, Math.max(MIN, s)));
+    }
+    document.getElementById('fs-dec').addEventListener('click', function () { nudge(-1); });
+    document.getElementById('fs-inc').addEventListener('click', function () { nudge(1); });
+    document.getElementById('fs-reset').addEventListener('click', function () { apply(1); });
+    document.getElementById('fs-value').textContent = Math.round(get() * 100) + '%';
+  })();
+</script>

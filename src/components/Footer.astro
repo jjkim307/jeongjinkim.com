@@ -1,0 +1,14 @@
+---
+import { EMAIL, SCHOLAR_URL, LINKEDIN_URL } from '../data/site.js';
+const { lang = 'en' } = Astro.props;
+---
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>&copy; 2026 {lang === 'ko' ? '김정진' : 'JeongJin Kim'}</span>
+    <span class="footer-links">
+      <a href={`mailto:${EMAIL}`}>Email</a>
+      <a href={SCHOLAR_URL} target="_blank" rel="noopener">Google Scholar</a>
+      <a href={LINKEDIN_URL} target="_blank" rel="noopener">LinkedIn</a>
+    </span>
+  </div>
+</footer>
