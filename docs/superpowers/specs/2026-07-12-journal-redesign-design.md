@@ -1,7 +1,7 @@
 # jeongjinkim.com — "The Journal" Redesign
 
 Date: 2026-07-12
-Status: approved by JeongJin Kim (via visual companion session)
+Status: SUPERSEDED by `2026-07-12-jinalee-model-redesign-design.md` — the user redirected the redesign to follow jinalee.org as the model before implementation began.
 
 ## Goal
 
