@@ -16,7 +16,7 @@ Rebuild jeongjinkim.com to follow https://www.jinalee.org/ as the model in templ
 ## The model (verified against jinalee.org, 2026-07-12)
 
 - Next.js static site; we replicate it in the existing **Astro** project (same repo, same Vercel pipeline). The two features that need JavaScript — font scaling and nothing else — are small inline vanilla scripts; the language toggle is plain links.
-- Base font size 125%; a header **text-size control** (`A− / 100% / A+`) multiplies it by a scale stored in `localStorage` (model key `jl-font-scale`; ours `jk-font-scale`), clamped to roughly 0.75–1.5, applied by an inline `<head>` script before paint so there is no flash.
+- Base font size **135%** (the model uses 125%; the user asked for slightly larger type overall, 2026-07-12); a header **text-size control** (`A− / 100% / A+`) multiplies it by a scale stored in `localStorage` (model key `jl-font-scale`; ours `jk-font-scale`), clamped to roughly 0.75–1.5, applied by an inline `<head>` script before paint so there is no flash.
 - **Bilingual mirror**: English at `/`, `/research/`, `/teaching/`, `/cv/`; Korean at `/ko/`, `/ko/research/`, `/ko/teaching/`, `/ko/cv/`. A KOR/ENG pill in the header links to the same page in the other language. `hreflang` alternate links in `<head>`. `<html lang>` set per language.
 - **Header** (sticky, 64px): name logotype left (serif; 김정진 on Korean pages); right side: text-size control, language pill, then tabs. Active tab gets weight + accent underline. Tabs stay in English on Korean pages; "Text size" → 글자 크기.
 - **Footer**: © name · Email · Google Scholar · LinkedIn (the model also lists ORCID; we include it only if the user has one to add).
