@@ -1,9 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CvBody from '../components/CvBody.astro';
+import { cvUpdated } from '../data/cv.js';
 ---
-<Layout title="CV | JeongJin Kim, Ph.D.">
-  <h2>Vita</h2>
-  <p>
-    <a href="/cv.pdf">CV (JeongJin Kim).pdf</a>
-  </p>
+<Layout
+  title="CV | JeongJin Kim"
+  description="Curriculum vitae of JeongJin Kim, Assistant Professor of Psychology at the University of Oklahoma."
+  lang="en"
+  active="cv"
+  enPath="/cv/"
+>
+  <h1 class="page-title serif">Curriculum Vitae</h1>
+  <p class="cv-updated">Last updated {cvUpdated.en}.</p>
+  <div class="cv-actions">
+    <a class="btn primary" href="/cv.pdf" download>Download CV (PDF)</a>
+    <a class="btn" href="/cv.pdf" target="_blank" rel="noopener">Open PDF in New Tab</a>
+  </div>
+  <CvBody lang="en" />
 </Layout>
