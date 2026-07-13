@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CvBody from '../../components/CvBody.astro';
+import { cvUpdated } from '../../data/cv.js';
+---
+<Layout
+  title="CV | 김정진"
+  description="김정진의 이력서(CV)."
+  lang="ko"
+  active="cv"
+  enPath="/cv/"
+>
+  <h1 class="page-title serif">Curriculum Vitae</h1>
+  <p class="cv-updated">마지막 업데이트: {cvUpdated.ko}.</p>
+  <div class="cv-actions">
+    <a class="btn primary" href="/cv.pdf" download>Download CV (PDF)</a>
+    <a class="btn" href="/cv.pdf" target="_blank" rel="noopener">Open PDF in New Tab</a>
+  </div>
+  <CvBody lang="ko" />
+</Layout>

@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PubList from '../../components/PubList.astro';
+import { publications } from '../../data/publications.js';
+import { EMAIL, SCHOLAR_URL, LINKEDIN_URL } from '../../data/site.js';
+---
+<Layout
+  title="김정진 | 산업조직심리학자"
+  description="오클라호마 대학교 심리학과 조교수 김정진입니다. 개인-상황 상호작용, 직무 태도와 정서, 개인 수행 행동을 연구합니다."
+  lang="ko"
+  active="home"
+  enPath="/"
+>
+  <section class="hero">
+    <div class="hero-text">
+      <h1 class="serif">김정진</h1>
+      <p class="hero-role">산업조직심리학자 / 심리학과 조교수</p>
+      <p class="hero-affil">The University of Oklahoma</p>
+      <p class="hero-statement serif">일터에서 직장인들의 수행 행동과 웰빙을 연구합니다.</p>
+      <div class="hero-links">
+        <a class="btn primary" href={`mailto:${EMAIL}`}>Email</a>
+        <a class="btn" href="/ko/cv/">CV</a>
+        <a class="btn" href={SCHOLAR_URL} target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn" href={LINKEDIN_URL} target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <img class="hero-headshot" src="/headshot.jpg" alt="김정진" width="270" height="331" />
+  </section>
+
+  <section>
+    <h2 class="sec-label">소개</h2>
+    <p>
+      일터에서 직장인들의 수행 행동과 웰빙이 어떻게, 그리고 왜 형성되는지에 관심을 가지고
+      있습니다. 구체적으로는 서로 연결된 다음 세 영역을 중심으로 연구합니다.
+    </p>
+    <ul>
+      <li>개인&ndash;상황 상호작용, 특히 상황 측면(예: 상황 강도, 상황 내용 특성)</li>
+      <li>직무 태도와 정서(예: 직무 열의, 직무 지루함)</li>
+      <li>개인 수행 행동(예: 반생산적 업무 행동, 조직시민행동)</li>
+    </ul>
+    <div class="phd-note">
+      <p><strong>박사과정 지원자 안내:</strong> 2027년 가을학기에는 박사과정 학생을 선발하지 않을 예정입니다.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec-label">논문</h2>
+    <PubList pubs={publications} />
+  </section>
+
+  <section>
+    <h2 class="sec-label">강의</h2>
+    <p>오클라호마 대학교에서 통계학과 산업조직심리학 학부 과목을 가르치고 있습니다.</p>
+    <p><a class="arrow-link" href="/ko/teaching/">Teaching &rarr;</a></p>
+  </section>
+</Layout>
