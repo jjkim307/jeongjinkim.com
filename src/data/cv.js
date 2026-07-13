@@ -1,6 +1,6 @@
 import { publications } from './publications.js';
 
-export const cvUpdated = 'July 12, 2026';
+export const cvUpdated = 'July 13, 2026';
 
 const p = (s) => s; // readability no-op for long strings
 
@@ -8,16 +8,16 @@ export const cvSections = [
   {
     id: 'appointment', en: 'Academic Appointment',
     items: [
-      { label: '2025–', html: p('<strong>Assistant Professor of Psychology</strong><br>The University of Oklahoma (Norman, OK)<br>August 2025 – present') },
+      { label: '2025–', html: p('<strong>Assistant Professor</strong><br>Department of Psychology (Industrial-Organizational)<br>The University of Oklahoma (Norman, OK)<br>August 2025 – present') },
     ],
   },
   {
     id: 'education', en: 'Education',
     items: [
-      { label: '2025', html: p('<strong>Ph.D. Industrial-Organizational Psychology</strong>, George Mason University<br>Advisors: Reeshad S. Dalal, Ph.D. (Chair), Seth A. Kaplan, Ph.D., and Sarah M. Wittman, Ph.D.<br>Dissertation: <i>Conditions under which the behavior of employees with attention-deficit/hyperactivity disorder is misperceived as low job performance</i>') },
+      { label: '2025', html: p('<strong>Ph.D. Industrial-Organizational Psychology</strong>, George Mason University<br>Dissertation committee: Reeshad S. Dalal, Ph.D. (Chair), Seth A. Kaplan, Ph.D., and Sarah M. Wittman, Ph.D.<br>Dissertation title: <i>Conditions under which the behavior of employees with attention-deficit/hyperactivity disorder is misperceived as low job performance</i>') },
       { label: '2022', html: p('<strong>M.A. Industrial-Organizational Psychology</strong> (concurrent degree with Ph.D.), George Mason University') },
-      { label: '2019', html: p('<strong>M.A. Psychology</strong> (Industrial-Organizational Psychology emphasis), Yonsei University<br>Advisors: Young Woo Sohn, Ph.D. (Chair), Kwanghee Han, Ph.D., and Suran Lee, Ph.D.<br>Thesis: <i>Examining when and why overqualified workers engage in extra-role behaviors: Testing a moderated mediation model</i>') },
-      { label: '2016', html: p('<strong>B.A. Psychology</strong>, University of Wisconsin–Madison<br>Advisors: Judy M. Harackiewicz, Ph.D. and Cameron A. Hecht, Ph.D.<br>Thesis: <i>Effects of utility-value intervention variations differ by student ethnicity and self-construal</i>') },
+      { label: '2019', html: p('<strong>M.A. Psychology</strong> (Industrial-Organizational Psychology emphasis), Yonsei University<br>Thesis committee: Young Woo Sohn, Ph.D. (Chair), Kwanghee Han, Ph.D., and Suran Lee, Ph.D.<br>Thesis title: <i>Examining when and why overqualified workers engage in extra-role behaviors: Testing a moderated mediation model</i>') },
+      { label: '2016', html: p('<strong>B.A. Psychology</strong>, University of Wisconsin–Madison<br>Faculty advisor: Judy M. Harackiewicz, Ph.D.<br>Graduate student advisor: Cameron A. Hecht, Ph.D.<br>Thesis title: <i>Effects of utility-value intervention variations differ by student ethnicity and self-construal</i>') },
     ],
   },
   {
