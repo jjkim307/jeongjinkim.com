@@ -19,7 +19,7 @@ Rebuild jeongjinkim.com to follow https://www.jinalee.org/ as the model in templ
 - Base font size 125%; a header **text-size control** (`A− / 100% / A+`) multiplies it by a scale stored in `localStorage` (model key `jl-font-scale`; ours `jk-font-scale`), clamped to roughly 0.75–1.5, applied by an inline `<head>` script before paint so there is no flash.
 - **Bilingual mirror**: English at `/`, `/research/`, `/teaching/`, `/cv/`; Korean at `/ko/`, `/ko/research/`, `/ko/teaching/`, `/ko/cv/`. A KOR/ENG pill in the header links to the same page in the other language. `hreflang` alternate links in `<head>`. `<html lang>` set per language.
 - **Header** (sticky, 64px): name logotype left (serif; 김정진 on Korean pages); right side: text-size control, language pill, then tabs. Active tab gets weight + accent underline. Korean tab labels: 홈 · 연구 · 강의 · CV; "Text size" → 글자 크기.
-- **Footer**: © name · Google Scholar · Email (the model also lists ORCID; we include it only if the user has one to add).
+- **Footer**: © name · Google Scholar · LinkedIn · Email (the model also lists ORCID; we include it only if the user has one to add).
 
 ### Design tokens (model structure, warmed per user revision 2026-07-12)
 
@@ -44,8 +44,8 @@ Fonts: **Inter** (UI/body sans), **Source Serif 4** (name, headings, hero statem
 Content sources: the committed pages at `8100770`, the user's revised Home copy (2026-07-12), and `public/cv.pdf` (last updated June 4, 2026). The "not admitting for Fall 2027" note supersedes the old Fall 2026 recruitment callout everywhere.
 
 **Home (`/`)** — one long page like the model:
-1. **Hero**: "JeongJin Kim, Ph.D." (serif) / "Assistant Professor of Psychology" / "The University of Oklahoma" / one-line serif-italic statement: "I study what shapes employees' performance behavior and well-being in the workplace." / buttons: CV (navy), Google Scholar, Email / `headshot.jpg` right, ~150×184, rounded with soft shadow.
-2. **About**: the user's verbatim bio copy — the I-O psychologist paragraph, the "why's and how's" paragraph, and the three interconnected areas as a list.
+1. **Hero**: "JeongJin Kim, Ph.D." (serif) / "Industrial-Organizational Psychologist" / "Assistant Professor of Psychology" / "The University of Oklahoma" / one-line serif-italic statement: "I study what shapes employees' performance behavior and well-being in the workplace." / buttons: CV (crimson), Google Scholar, LinkedIn, Email / `headshot.jpg` right, ~300×368 (doubled from the model's ~150px at the user's request), rounded with soft shadow. **LinkedIn URL needed from the user before merge** (also added to the footer next to Google Scholar).
+2. **About**: the "why's and how's" paragraph and the three interconnected areas as a list. The former first sentence ("I am an industrial-organizational (I-O) psychologist and an Assistant Professor of Psychology at the University of Oklahoma.") is removed — the hero title lines now carry it.
 3. **Prospective PhD students** notice in a light accent panel: "I do not plan to admit a PhD student for Fall 2027."
 4. **Publications**: all nine peer-reviewed publications from the CV, by recency, APA format, `Kim, J. J.` bolded, year in mono, DOI ↗ links. (This replaces the old research page's two venue-TODO entries; the CV has full citations.) **No Work in Progress and no R&R/under-review section** — published work only (user decision 2026-07-12; the R&R entries still appear inside the CV tab's transcription, since that reproduces the PDF).
 5. **Teaching** teaser: one sentence + "Teaching →" link.
@@ -61,7 +61,7 @@ Content sources: the committed pages at `8100770`, the user's revised Home copy 
 - Hero title line: **산업조직심리학자 / 심리학과 조교수** (then "The University of Oklahoma" beneath, in English).
 - Hero statement: **"일터에서 직장인들의 수행 행동과 웰빙을 연구합니다."**
 - **Nav tabs stay in English** (Home, Research, Teaching, CV) on Korean pages; the text-size label is 글자 크기.
-- Hero/footer buttons stay in English: CV, Google Scholar, **Email** (not 이메일).
+- Hero/footer buttons stay in English: CV, Google Scholar, LinkedIn, **Email** (not 이메일).
 - Also kept in English, as the model does: institution names, publication citations, course codes.
 
 **Removed**: the Contact page. `/contact` gets a redirect to `/` (Astro redirect) so old links don't 404. The Dale Hall Tower address drops off the site (it lives in the CV PDF); the pronunciation TODO from the old contact page is dropped.
