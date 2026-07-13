@@ -1,0 +1,12 @@
+---
+const { pubs } = Astro.props;
+---
+<div class="pub-list">
+  {pubs.map((p) => (
+    <div class="pub">
+      <p set:html={p.html} />
+      {p.doi && <a class="doi" href={p.doi} target="_blank" rel="noopener">DOI &nearr;</a>}
+      {p.note && <span class="pub-note">[{p.note}]</span>}
+    </div>
+  ))}
+</div>

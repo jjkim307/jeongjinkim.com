@@ -1,40 +1,58 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PubList from '../components/PubList.astro';
+import { publications } from '../data/publications.js';
+import { EMAIL, SCHOLAR_URL, LINKEDIN_URL } from '../data/site.js';
 ---
-<Layout title="JeongJin Kim, Ph.D.">
-  <div class="bio-row">
-    <img class="headshot" src="/headshot.jpg" alt="JeongJin Kim" />
-    <div>
-      <p class="greeting">Hi, I'm JeongJin.</p>
-      <p>
-        I am an industrial-organizational (I-O) psychologist and an Assistant Professor of
-        I-O Psychology at the University of Oklahoma. I earned my bachelor's degree from the
-        University of Wisconsin–Madison, my master's degree from Yonsei University, and my
-        PhD from George Mason University.
-      </p>
-      <p>
-        Broadly speaking, I am interested in what shapes individuals' performance behavior and
-        well-being in the workplace, as well as the why's and how's. More specifically, my work
-        primarily focuses on these three interconnected areas:
-      </p>
-      <ul>
-        <li><strong>Person–situation interactions</strong>, with a particular emphasis on situation (e.g., situational strength and substance characteristics);</li>
-        <li><strong>Job attitudes and affect/emotions</strong> (e.g., work engagement, job boredom); and</li>
-        <li><strong>Individual work performance behavior</strong> (e.g., task performance, counterproductive work behavior, and organizational citizenship behavior).</li>
-      </ul>
-      <p>
-        To learn more about my research, click <a href="/research">here</a>. For a list of my
-        publications, please visit my
-        <a href="https://scholar.google.com/citations?user=3312EoQAAAAJ&hl=en">Google Scholar profile</a>.
-      </p>
+<Layout
+  title="JeongJin Kim | Industrial-Organizational Psychologist"
+  description="Industrial-Organizational Psychologist and Assistant Professor of Psychology at the University of Oklahoma. Research on person-situation interactions, job attitudes and affect, and work performance behavior."
+  lang="en"
+  active="home"
+  enPath="/"
+>
+  <section class="hero">
+    <div class="hero-text">
+      <h1 class="serif">JeongJin Kim<span class="phd">, Ph.D.</span></h1>
+      <p class="hero-role">Industrial-Organizational Psychologist</p>
+      <p class="hero-role">Assistant Professor of Psychology</p>
+      <p class="hero-affil">The University of Oklahoma</p>
+      <p class="hero-statement serif">I study what shapes employees&rsquo; performance behavior and well-being in the workplace.</p>
+      <div class="hero-links">
+        <a class="btn primary" href={`mailto:${EMAIL}`}>Email</a>
+        <a class="btn" href="/cv/">CV</a>
+        <a class="btn" href={SCHOLAR_URL} target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn" href={LINKEDIN_URL} target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </div>
-  </div>
+    <img class="hero-headshot" src="/headshot.jpg" alt="JeongJin Kim" width="270" height="331" />
+  </section>
 
-  <div class="callout">
-    <strong>Prospective PhD students:</strong> I plan to admit a PhD student in I-O Psychology
-    for Fall 2026. I welcome applications from conscientious, curious, and proactive students
-    who are active learners and problem-solvers.
-  </div>
+  <section>
+    <h2 class="sec-label">About</h2>
+    <p>
+      I am interested in what shapes employees&rsquo; performance behavior and well-being, as well
+      as the why&rsquo;s and how&rsquo;s. Specifically, my work primarily focuses on these three
+      interconnected areas:
+    </p>
+    <ul>
+      <li>Person&ndash;situation interactions, with a particular emphasis on situation (e.g., situational strength, substance characteristics),</li>
+      <li>Job attitudes and affect/emotions (e.g., work engagement, job boredom), and</li>
+      <li>Individual work performance behavior (e.g., counterproductive work behavior, organizational citizenship behavior)</li>
+    </ul>
+    <div class="phd-note">
+      <p><strong>Prospective PhD students:</strong> I do not plan to admit a PhD student for Fall 2027.</p>
+    </div>
+  </section>
 
-  <p class="located">Located in Norman, OK</p>
+  <section>
+    <h2 class="sec-label">Publications</h2>
+    <PubList pubs={publications} />
+  </section>
+
+  <section>
+    <h2 class="sec-label">Teaching</h2>
+    <p>I teach undergraduate courses in statistics and industrial-organizational psychology at the University of Oklahoma.</p>
+    <p><a class="arrow-link" href="/teaching/">Teaching &rarr;</a></p>
+  </section>
 </Layout>
