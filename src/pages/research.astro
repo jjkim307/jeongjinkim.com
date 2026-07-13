@@ -1,49 +1,46 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PubList from '../components/PubList.astro';
+import { publications } from '../data/publications.js';
+
+const streams = [
+  {
+    id: 'i',
+    title: 'Person–Situation Interactions',
+    body: `The first area of my interest is the interplay between personal and situational characteristics, hence person–situation interactions (aka. interactionism). I study person–situation interactions as they pertain to workplace settings, with an emphasis on the situation side. Specifically, I am interested in situational strength (i.e., strong versus weak situations) and its impact on individual work performance. Through multiple studies, I examined situational strength both as a traditional moderator of personality–job performance relationships and as a novel antecedent that directly influences employee outcomes. Some of my ongoing projects in this area include an integrative conceptual review aimed at synthesizing situational and personality strength literatures and a short measure development of situational strength for experience sampling contexts.`,
+  },
+  {
+    id: 'ii',
+    title: 'Attitudes and Affect/Emotions at Work',
+    body: `My work in this topic broadly involves job attitudes and affect, but more specifically job boredom and work engagement. I am interested in why and how boredom is experienced at work and the underlying mechanisms that explain its relationships with employee performance outcomes and well-being outcomes. Additionally, my colleagues and I developed and tested ecological momentary interventions for emotion regulation, specifically cognitive reappraisal interventions that help employees manage workplace emotions and improve job performance through enhanced positive affect and reduced negative affect. In current projects, I study within-person associations between personality and work engagement, psychosocial effects of boredom and its implications in organizations, and relationships between job boredom and extra-role behaviors.`,
+  },
+  {
+    id: 'iii',
+    title: 'Employee Performance Behavior',
+    body: `This last area of interest is closely related to the above two areas. The construct of job performance is complex and multifaceted, but here, my interest largely revolves around extra-role performance behavior such as organizational citizenship behavior and counterproductive work behavior. Specifically, I primarily focus on cognitive, affective, and social factors that influence, or are influenced by, employee performance, as well as boundary conditions that can help or harm performance. A current project in this realm revisits the criterion space and whether (and if so, to what extent) it has changed over time, given the increasingly changing nature of work today. In another project, my colleagues and I examine antecedents and outcomes of individuals' boundary-spanning behavior.`,
+  },
+];
 ---
-<Layout title="Research | JeongJin Kim, Ph.D.">
-  <p>Below, I summarize my key programs of research that are interconnected.</p>
+<Layout
+  title="Research | JeongJin Kim"
+  description="Research programs: person-situation interactions, job attitudes and affect/emotions, and employee performance behavior."
+  lang="en"
+  active="research"
+  enPath="/research/"
+>
+  <h1 class="page-title serif">Research</h1>
+  <p class="page-intro">Below, I summarize my key programs of research that are interconnected.</p>
 
-  <h2>Person–Situation Interactions</h2>
-  <p>
-    The first area of my interest is the interplay between personal and situational
-    characteristics, hence person–situation interactions (aka. interactionism). I study
-    person–situation interactions as they pertain to workplace settings, with an emphasis on
-    the situation side. Specifically, I am interested in situational strength (i.e., strong
-    versus weak situations) and its impact on individual work performance. Through multiple
-    studies, I examined situational strength both as a traditional moderator of personality–job
-    performance relationships (Kim et al., under review) and as a novel antecedent that directly
-    influences employee outcomes (Kim et al., under review). Some of my ongoing projects in this
-    area include an integrative conceptual review aimed at synthesizing situational and
-    personality strength literatures and a short measure development of situational strength for
-    experience sampling contexts.
-  </p>
-
-  <h2>Attitudes and Affect/Emotions at Work</h2>
-  <p>
-    My work in this topic broadly involves job attitudes and affect, but more specifically job
-    boredom and work engagement. I am interested in why and how boredom is experienced at work
-    and the underlying mechanisms that explain its relationships with employee performance
-    outcomes (Kim et al., 2021, 2025) and well-being outcomes (Kim et al., 2024). Additionally,
-    my colleagues and I developed and tested ecological momentary interventions for emotion
-    regulation, specifically cognitive reappraisal interventions that help employees manage
-    workplace emotions and improve job performance through enhanced positive affect and reduced
-    negative affect (Aitken et al., 2025; Zhu et al., 2025). In current projects, I study
-    within-person associations between personality and work engagement, psychosocial effects of
-    boredom and its implications in organizations, and relationships between job boredom and
-    extra-role behaviors.
-  </p>
-
-  <h2>Employee Performance Behavior</h2>
-  <p>
-    This last area of interest is closely related to the above two areas. The construct of job
-    performance is complex and multifaceted, but here, my interest largely revolves around
-    extra-role performance behavior such as organizational citizenship behavior and
-    counterproductive work behavior. Specifically, I primarily focus on cognitive, affective,
-    and social factors that influence, or are influenced by, employee performance, as well as
-    boundary conditions that can help or harm performance. A current project in this realm
-    revisits the criterion space and whether (and if so, to what extent) it has changed over
-    time, given the increasingly changing nature of work today. In another project, my
-    colleagues and I examine antecedents and outcomes of individuals' boundary-spanning behavior.
-  </p>
+  {streams.map((s) => (
+    <section class="stream">
+      <h2 class="serif">{s.title}</h2>
+      <p>{s.body}</p>
+      {publications.some((p) => p.streams.includes(s.id)) && (
+        <>
+          <p class="related-label">Related work</p>
+          <PubList pubs={publications.filter((p) => p.streams.includes(s.id))} />
+        </>
+      )}
+    </section>
+  ))}
 </Layout>
