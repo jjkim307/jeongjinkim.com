@@ -24,7 +24,7 @@ const site = 'https://jeongjinkim.com';
     <script is:inline>
       try {
         var s = parseFloat(localStorage.getItem('jk-font-scale'));
-        if (s && s > 0.5 && s < 2 && s !== 1) {
+        if (s && s >= 0.75 && s <= 1.5 && s !== 1) {
           document.documentElement.style.fontSize = 135 * s + '%';
         }
       } catch (e) {}
