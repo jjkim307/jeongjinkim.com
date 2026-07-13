@@ -6,15 +6,14 @@ import { cvUpdated } from '../data/cv.js';
 <Layout
   title="CV | JeongJin Kim"
   description="Curriculum vitae of JeongJin Kim, Assistant Professor of Psychology at the University of Oklahoma."
-  lang="en"
   active="cv"
   enPath="/cv/"
 >
   <h1 class="page-title serif">Curriculum Vitae</h1>
-  <p class="cv-updated">Last updated {cvUpdated.en}.</p>
+  <p class="cv-updated">Last updated {cvUpdated}.</p>
   <div class="cv-actions">
     <a class="btn primary" href="/cv.pdf" download>Download CV (PDF)</a>
     <a class="btn" href="/cv.pdf" target="_blank" rel="noopener">Open PDF in New Tab</a>
   </div>
-  <CvBody lang="en" />
+  <CvBody />
 </Layout>

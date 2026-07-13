@@ -29,19 +29,16 @@ body {
   line-height: 1.75;
 }
 
-body.ko { font-family: 'Pretendard Variable', var(--font-sans); }
-
 .serif { font-family: var(--font-serif); }
-body.ko .serif { font-family: 'Pretendard Variable', var(--font-serif); }
 .mono { font-family: var(--font-mono); }
 
 a { color: inherit; }
-main a:not(.btn):not(.tab):not(.lang-pill) {
+main a:not(.btn):not(.tab) {
   text-decoration: none;
   border-bottom: 1.5px solid var(--crimson);
   padding-bottom: 1px;
 }
-main a:not(.btn):not(.tab):not(.lang-pill):hover { border-bottom-color: var(--crimson-hover); }
+main a:not(.btn):not(.tab):hover { border-bottom-color: var(--crimson-hover); }
 
 h1, h2, h3 { font-weight: 600; line-height: 1.25; }
 
@@ -71,7 +68,6 @@ h1, h2, h3 { font-weight: 600; line-height: 1.25; }
   font-size: 0.9rem;
   text-decoration: none;
 }
-body.ko .logotype { font-family: 'Pretendard Variable', var(--font-serif); font-weight: 700; }
 .header-right { display: flex; align-items: center; gap: 0.85rem; flex-wrap: wrap; }
 .fs-ctl {
   display: flex;
@@ -95,16 +91,6 @@ body.ko .logotype { font-family: 'Pretendard Variable', var(--font-serif); font-
 }
 .fs-ctl button:hover { background: var(--border-light); color: var(--text); }
 #fs-value { font-family: var(--font-mono); font-size: 0.55rem; }
-.lang-pill {
-  font-size: 0.6rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: var(--surface);
-  padding: 0.25rem 0.5rem;
-  text-decoration: none;
-  color: var(--text-secondary);
-}
-.lang-pill:hover { color: var(--text); border-color: var(--text-muted); }
 .site-header nav { display: flex; gap: 1rem; }
 .tab {
   font-size: 0.65rem;
@@ -146,7 +132,6 @@ main section + section { margin-top: 2.4rem; }
   color: var(--text-statement);
   margin: 0 0 1.1rem;
 }
-body.ko .hero-statement { font-style: normal; }
 .hero-links { display: flex; flex-wrap: wrap; gap: 0.45rem; }
 .btn {
   font-size: 0.62rem;

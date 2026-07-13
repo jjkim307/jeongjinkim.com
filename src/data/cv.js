@@ -1,18 +1,18 @@
 import { publications } from './publications.js';
 
-export const cvUpdated = { en: 'June 4, 2026', ko: '2026년 6월 4일' };
+export const cvUpdated = 'July 12, 2026';
 
 const p = (s) => s; // readability no-op for long strings
 
 export const cvSections = [
   {
-    id: 'appointment', en: 'Academic Appointment', ko: '재직',
+    id: 'appointment', en: 'Academic Appointment',
     items: [
       { label: '2025–', html: p('<strong>Assistant Professor of Psychology</strong><br>The University of Oklahoma (Norman, OK)<br>August 2025 – present') },
     ],
   },
   {
-    id: 'education', en: 'Education', ko: '학력',
+    id: 'education', en: 'Education',
     items: [
       { label: '2025', html: p('<strong>Ph.D. Industrial-Organizational Psychology</strong>, George Mason University<br>Advisors: Reeshad S. Dalal, Ph.D. (Chair), Seth A. Kaplan, Ph.D., and Sarah M. Wittman, Ph.D.<br>Dissertation: <i>Conditions under which the behavior of employees with attention-deficit/hyperactivity disorder is misperceived as low job performance</i>') },
       { label: '2022', html: p('<strong>M.A. Industrial-Organizational Psychology</strong> (concurrent degree with Ph.D.), George Mason University') },
@@ -21,13 +21,13 @@ export const cvSections = [
     ],
   },
   {
-    id: 'interests', en: 'Research Interests', ko: '연구 관심사',
+    id: 'interests', en: 'Research Interests',
     items: [
       { label: '', html: p('I am interested in the cognitive, affective, and social processes that shape individuals’ job performance and well-being in the workplace. My work generally falls into one or more of the following areas:<ul><li>Person–situation interactions, with a particular emphasis on situational factors (e.g., situational strength and content),</li><li>Job affect/emotion and attitudes such as job boredom and work engagement, and</li><li>Individual work performance behavior such as counterproductive work behavior and organizational citizenship behavior.</li></ul>') },
     ],
   },
   {
-    id: 'pubs', en: 'Peer-Reviewed Publications', ko: '학술지 논문',
+    id: 'pubs', en: 'Peer-Reviewed Publications',
     note: 'Boldface denotes my initials. Publications are listed by recency.',
     items: publications.map((pub, i) => ({
       label: `${publications.length - i}.`,
@@ -37,18 +37,16 @@ export const cvSections = [
     })),
   },
   {
-    id: 'underreview', en: 'Revise and Resubmit (R&R) or Under Review', ko: '심사 중 논문',
+    id: 'underreview', en: 'Revise and Resubmit (R&R) or Under Review',
     items: [
-      { label: '', html: p('<strong>Kim, J. J.</strong>, Son, M., Dalal, R. S., Baines, J. I., Bui, T. N., Tsai, H., Aranda, N., &amp; Kaplan, S. A. (R&amp;R3 under review). Research on situational strength, personality, and job performance. <i>Applied Psychology: An International Review</i>.') },
-      { label: '', html: p('Baines, J. I., Dalal, R. S., <strong>Kim, J. J.</strong>, Aitken, J. A., Kaplan, S. A., Zhu, Z., Hassani, J. (R&amp;R2 under review). Research on remote work and counterproductive work behavior. <i>Human Performance</i>.') },
-      { label: '', html: p('<strong>Kim, J. J.</strong>, Dalal, R. S., Aitken, J. A., Kaplan, S., Baines, J. I., Zhu, Z., &amp; Hassani, J. (R&amp;R2 under review). Research on situational strength, affect, and job performance. <i>Current Psychology</i>.') },
-      { label: '', html: p('Ponce, L. P., <strong>Kim, J. J.</strong>, Kaplan, S. A., &amp; Fyffe, S. (R&amp;R2 under review). Research on personality and measure-related techniques in experience-sampling methods. <i>International Journal of Social Research Methodology</i>.') },
+      { label: '', html: p('Baines, J. I., Dalal, R. S., <strong>Kim, J. J.</strong>, Aitken, J. A., Kaplan, S. A., Zhu, Z., Hassani, J. (R2 under review). Research on remote work and counterproductive work behavior. <i>Human Performance</i>.') },
+      { label: '', html: p('Ponce, L. P., <strong>Kim, J. J.</strong>, Kaplan, S. A., &amp; Fyffe, S. (R2 under review). Research on personality and measure-related techniques in experience-sampling methods. <i>International Journal of Social Research Methodology</i>.') },
       { label: '', html: p('Ponce, L. P., Kaplan, S. A., Dalal, R. S., <strong>Kim, J. J.</strong>, Moon, N. A., &amp; Aitken, J. A. (Invited for R&amp;R2). Research on personality and work engagement. <i>Journal of Business and Psychology</i>.') },
-      { label: '', html: p('Son, M., <strong>Kim, J. J.</strong>, Dalal, R. S., Sohn, J., Nguyen, L. K., &amp; Maguire, L. (Invited for R&amp;R1). Research on situational strength and substance. <i>European Journal of Personality</i>.') },
+      { label: '', html: p('Son, M., <strong>Kim, J. J.</strong>, Dalal, R. S. Sohn, J., Nguyen, L. K., &amp; Maguire, L. (R1 under review). Research on situational strength and substance. <i>European Journal of Personality</i>.') },
     ],
   },
   {
-    id: 'grants', en: 'Grants and Research Funding', ko: '연구비 수혜',
+    id: 'grants', en: 'Grants and Research Funding',
     items: [
       { label: '', html: p('<strong>Awarded External Funding</strong>') },
       { label: '2024', html: p('Fostering Neurodiverse Individuals’ Work Success via an Assistive Wearable Technology (Award #2326270), $1,871,692. Granter: National Science Foundation. PI: Vivian G. Motti; Co-PI: Sarah M. Wittman. Role: Graduate Research Assistant (January 2024 – May 2025).') },
@@ -62,7 +60,7 @@ export const cvSections = [
     ],
   },
   {
-    id: 'awards', en: 'Awards & Honors', ko: '수상',
+    id: 'awards', en: 'Awards & Honors',
     items: [
       { label: '2025', html: p('SIOP Travel Award, Society for Industrial and Organizational Psychology, $500.') },
       { label: '2025', html: p('Graduate Student Travel Fund, Office of the Provost, George Mason University, $450.') },
@@ -79,7 +77,7 @@ export const cvSections = [
     ],
   },
   {
-    id: 'presentations', en: 'Conference Presentations', ko: '학술대회 발표',
+    id: 'presentations', en: 'Conference Presentations',
     note: 'Boldface denotes my initials. An asterisk denotes the presenter.',
     items: [
       { label: '29.', html: p('<strong>Kim, J. J.</strong>*, Son, M., Jang, H., &amp; Dalal, R. S. (2026, April 29–May 2). Apples and oranges? How ADHD behavior is confused with low job performance [Poster]. Society for Industrial and Organizational Psychology 2026 Conference, New Orleans, LA, USA.') },
@@ -114,7 +112,7 @@ export const cvSections = [
     ],
   },
   {
-    id: 'teaching', en: 'Teaching Experience', ko: '강의 경력',
+    id: 'teaching', en: 'Teaching Experience',
     items: [
       { label: '', html: p('<strong>The University of Oklahoma</strong>') },
       { label: 'Spring 2026', html: p('Introduction to Industrial-Organizational Psychology (PSY 3753-996) — Instructor') },
@@ -135,7 +133,7 @@ export const cvSections = [
     ],
   },
   {
-    id: 'service', en: 'Institutional and Professional Service', ko: '학내외 봉사',
+    id: 'service', en: 'Institutional and Professional Service',
     items: [
       { label: '2025–', html: p('Diversity, Equity, and Inclusion (Helen Riddle Award) Committee, The University of Oklahoma (Aug. 2025 – present)') },
       { label: '2025–', html: p('Social Media and Web Committee, The University of Oklahoma (Aug. 2025 – present)') },
@@ -147,7 +145,7 @@ export const cvSections = [
     ],
   },
   {
-    id: 'affiliations', en: 'Professional Affiliations', ko: '학회 활동',
+    id: 'affiliations', en: 'Professional Affiliations',
     items: [
       { label: '2025–', html: p('Member, Society for Industrial and Organizational Psychology (SIOP)') },
       { label: '2025–', html: p('Member, Data Institute for Societal Challenges, The University of Oklahoma') },
@@ -157,7 +155,7 @@ export const cvSections = [
     ],
   },
   {
-    id: 'media', en: 'Media Coverage', ko: '언론 보도',
+    id: 'media', en: 'Media Coverage',
     items: [
       { label: '2019', html: p('Association for Psychological Science. (2019, July 10). Dedication buffers employees against boredom, study suggests.') },
     ],

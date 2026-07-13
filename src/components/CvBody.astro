@@ -1,10 +1,9 @@
 ---
 import { cvSections } from '../data/cv.js';
-const { lang = 'en' } = Astro.props;
 ---
 {cvSections.map((s) => (
   <section class="cv-section">
-    <h2 class="sec-label">{lang === 'ko' ? s.ko : s.en}</h2>
+    <h2 class="sec-label">{s.en}</h2>
     {s.note && <p class="cv-note">{s.note}</p>}
     {s.items.map((it) => (
       <div class="cv-row">

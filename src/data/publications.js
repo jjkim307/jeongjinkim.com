@@ -1,5 +1,15 @@
 export const publications = [
   {
+    year: 2026, streams: ['i'],
+    doi: 'https://doi.org/10.1111/apps.70126',
+    html: '<strong>Kim, J. J.</strong>, Son, M., Dalal, R. S., Baines, J. I., Bui, T. N., Tsai, H., Aranda, N., &amp; Kaplan, S. A. (in press). Contextualizing personality&ndash;job performance relationships: A cultural tightness&ndash;looseness-based meta-analysis. <i>Applied Psychology: An International Review</i>.',
+  },
+  {
+    year: 2026, streams: ['i', 'ii'],
+    doi: 'https://doi.org/10.1007/s12144-026-09670-w',
+    html: '<strong>Kim, J. J.</strong>, Dalal, R. S., Aitken, J. A., Kaplan, S. A., Baines, J. I., Zhu, Z., &amp; Hassani, J. (2026). Good versus bad situational strength? The relationship of within-person situational strength shift and stability with affect and job performance. <i>Current Psychology, 45</i>, 1111.',
+  },
+  {
     year: 2025, streams: ['ii'],
     doi: 'https://doi.org/10.1007/s41542-025-00232-3',
     html: 'Aitken, J. A., Zhu, Z., Baines, J. I., <strong>Kim, J. J.</strong>, Kaplan, S. A., Dalal, R. S., Hassani, J., &amp; Gibson, J. L. (2025). Emotion regulation at work: A micro-randomized trial comparing three cognitive reappraisal interventions. <i>Occupational Health Science, 9</i>, 991&ndash;1021.',
