@@ -1,7 +1,9 @@
 # jeongjinkim.com — Redesign on the jinalee.org Model
 
 Date: 2026-07-12
-Status: pending user approval
+Status: implemented on branch `jinalee-redesign` (through commit 3a5e61b); pending final user review before merge
+
+> **Amendments (2026-07-13, user decisions):** The site is **English-only** — the entire Korean mirror (`/ko/…`), the KOR/ENG language pill, Pretendard, and hreflang alternates were removed; every "Korean pages" provision below is void. The CV source is now the **July 12, 2026 PDF** (11 journal articles — the tightness–looseness meta-analysis in press at *Applied Psychology: An International Review* and the 2026 *Current Psychology* situational-strength paper moved from R&R to published; R&R section trimmed to four). Home/Research show 11 publications.
 Supersedes: `2026-07-12-journal-redesign-design.md` ("The Journal")
 
 ## Goal
