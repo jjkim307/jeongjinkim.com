@@ -71,7 +71,7 @@ export const cvSections = [
       { label: '2024', html: p('Graduate Student Travel Fund, Office of the Provost, George Mason University, $450.') },
       { label: '2023', html: p('Graduate Student Travel Fund, Department of Psychology, George Mason University, $1,000.') },
       { label: '2023', html: p('Top 10 Poster Recognition at the Annual Conference of the Society for Industrial and Organizational Psychology. Poster entitled <i>Do tight cultures act as strong situations? A meta-analytic test</i>.') },
-      { label: '2023', html: p('Graduate Student Travel Fund, Department of Psychology, George Mason University, $328.') },
+      { label: '2023', html: p('Graduate Student Travel Fund, Office of the Provost, George Mason University, $328.') },
       { label: '2022', html: p('Graduate Student Travel Fund, Department of Psychology, George Mason University, $750.') },
       { label: '2018', html: p('Travel Award for 2019 International Convention of Psychological Science, Association for Psychological Science, $500.') },
       { label: '2017', html: p('Graduate Student Research Fellowship, Brain Korea 21, Yonsei University, $1,590.') },
