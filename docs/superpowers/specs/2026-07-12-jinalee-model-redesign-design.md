@@ -21,24 +21,23 @@ Rebuild jeongjinkim.com to follow https://www.jinalee.org/ as the model in templ
 - **Header** (sticky, 64px): name logotype left (serif; 김정진 on Korean pages); right side: text-size control, language pill, then tabs. Active tab gets weight + accent underline. Korean tab labels: 홈 · 연구 · 강의 · CV; "Text size" → 글자 크기.
 - **Footer**: © name · Google Scholar · Email (the model also lists ORCID; we include it only if the user has one to add).
 
-### Design tokens (copied from the model's CSS)
+### Design tokens (model structure, warmed per user revision 2026-07-12)
+
+The model's cool gray-blue neutrals are shifted slightly warm, and the slate/navy accent is replaced by OU crimson — used sparingly and **never as a text color**. Crimson appears only on non-text elements: the active-tab underline, the primary (CV) button background, link underlines (link text stays ink), the left edge of the PhD-note panel, and hover states of those same elements. Section labels, years, and all other type stay in the neutral tones.
 
 | Token | Value |
 |---|---|
-| Background | `#f5f7f8` |
+| Background | `#f8f6f3` (warm off-white) |
 | Surface | `#fff` |
-| Border / light border | `#dfe5e9` / `#edf1f3` |
-| Text | `#252b30` |
-| Secondary text | `#59636b` |
-| Muted text | `#7f8a92` |
-| Accent | `#526b7d` (hover `#3e5566`) |
-| Navy (primary buttons) | `#3e536d` (hover `#2d4058`) |
-| Accent light (tint panels) | `#eef2f4` |
+| Border / light border | `#e5e0d8` / `#efebe4` |
+| Text | `#2b2723` |
+| Secondary text | `#6b6459` |
+| Muted text (section labels, captions, years) | `#8d857a` |
+| Hero statement | `#4a443c` |
+| Accent — OU crimson (non-text only) | `#841617` (hover `#6d1213`) |
 | Content max-width | 760px (wide 1000px), nav height 64px |
 
 Fonts: **Inter** (UI/body sans), **Source Serif 4** (name, headings, hero statement), **IBM Plex Mono** (small labels, years), **Pretendard Variable** (Korean text; loaded from the jsdelivr CDN like the model, or self-hosted if preferred at implementation time). Google Fonts for the first three, matching the model.
-
-**Palette note:** the accent stays the model's slate blue for an exact copy. Swapping to OU crimson `#841617` is a one-variable change if the user later wants the palette localized.
 
 ## Pages — content from jeongjinkim.com
 
@@ -48,17 +47,22 @@ Content sources: the committed pages at `8100770`, the user's revised Home copy 
 1. **Hero**: "JeongJin Kim, Ph.D." (serif) / "Assistant Professor of Psychology" / "The University of Oklahoma" / one-line serif-italic statement: "I study what shapes employees' performance behavior and well-being in the workplace." / buttons: CV (navy), Google Scholar, Email / `headshot.jpg` right, ~150×184, rounded with soft shadow.
 2. **About**: the user's verbatim bio copy — the I-O psychologist paragraph, the "why's and how's" paragraph, and the three interconnected areas as a list.
 3. **Prospective PhD students** notice in a light accent panel: "I do not plan to admit a PhD student for Fall 2027."
-4. **Publications**: "Journal Articles" — all nine peer-reviewed publications from the CV, by recency, APA format, `Kim, J. J.` bolded, year in mono, DOI ↗ links. (This replaces the old research page's two venue-TODO entries; the CV has full citations.)
-5. **Work in Progress**: the six R&R/under-review entries from the CV, with status tags (R&R3 under review, etc.).
-6. **Teaching** teaser: one sentence + "Teaching →" link.
+4. **Publications**: all nine peer-reviewed publications from the CV, by recency, APA format, `Kim, J. J.` bolded, year in mono, DOI ↗ links. (This replaces the old research page's two venue-TODO entries; the CV has full citations.) **No Work in Progress and no R&R/under-review section** — published work only (user decision 2026-07-12; the R&R entries still appear inside the CV tab's transcription, since that reproduces the PDF).
+5. **Teaching** teaser: one sentence + "Teaching →" link.
 
-**Research (`/research/`)** — page title, then the committed intro sentence and the three programs as sections in the model's style (accent section labels): Person–Situation Interactions; Attitudes and Affect/Emotions at Work; Employee Performance Behavior — each with its full committed paragraph, followed by a "Related work" list of the CV publications belonging to that stream (Claude maps publications to streams; user reviews the mapping).
+**Research (`/research/`)** — page title, then the committed intro sentence and the three programs as sections in the model's style (accent section labels): Person–Situation Interactions; Attitudes and Affect/Emotions at Work; Employee Performance Behavior — each with its full committed paragraph, followed by a "Related work" list of the CV publications belonging to that stream — published work only, no R&R/under-review entries (Claude maps publications to streams; user reviews the mapping).
 
 **Teaching (`/teaching/`)** — "Courses" under a "The University of Oklahoma" heading, model style (title, description, term line in muted text): PSY 2003 Understanding Statistics (Fall 2025) and PSY 3753 Introduction to Industrial-Organizational Psychology (Fall 2025; Spring 2026), with the committed course descriptions. Terms from the CV. No teaching-philosophy section unless the user supplies one.
 
 **CV (`/cv/`)** — "Curriculum Vitae", "Last updated June 4, 2026.", buttons "Download CV (PDF)" and "Open PDF in New Tab", then the full CV in HTML sections transcribed from the PDF: Academic Appointment, Education, Research Interests, Peer-Reviewed Publications, R&R/Under Review, Grants and Research Funding, Awards & Honors, Conference Presentations (all 29), Teaching Experience, Institutional and Professional Service, Professional Affiliations, Media Coverage. The PDF's two-column year/amount layout garbles plain-text extraction; transcription must re-pair years and amounts with entries carefully and be checked against the rendered PDF.
 
-**Korean pages (`/ko/…`)** — full mirrors. Claude drafts the Korean prose (bio, statement, research paragraphs, teaching descriptions, UI labels: 소개, 논문, 진행 중인 연구, 강의, 예비 대학원생 등) in the register of jinalee.org's Korean pages. Kept in English on Korean pages, as the model does: institution names, publication citations, course codes, "CV", "Google Scholar". Name renders as 김정진. The user reviews all Korean text before merge.
+**Korean pages (`/ko/…`)** — full mirrors. Claude drafts the Korean prose (bio, research paragraphs, teaching descriptions, section labels: 소개, 논문, 강의 등) in the register of jinalee.org's Korean pages; the user reviews all Korean text before merge. Fixed by the user (2026-07-12):
+- Hero name: **김정진** with no ", Ph.D." suffix.
+- Hero title line: **산업조직심리학자 / 심리학과 조교수** (then "The University of Oklahoma" beneath, in English).
+- Hero statement: **"일터에서 직장인들의 수행 행동과 웰빙을 연구합니다."**
+- **Nav tabs stay in English** (Home, Research, Teaching, CV) on Korean pages; the text-size label is 글자 크기.
+- Hero/footer buttons stay in English: CV, Google Scholar, **Email** (not 이메일).
+- Also kept in English, as the model does: institution names, publication citations, course codes.
 
 **Removed**: the Contact page. `/contact` gets a redirect to `/` (Astro redirect) so old links don't 404. The Dale Hall Tower address drops off the site (it lives in the CV PDF); the pronunciation TODO from the old contact page is dropped.
 
