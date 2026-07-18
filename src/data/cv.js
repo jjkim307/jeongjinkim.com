@@ -39,10 +39,11 @@ export const cvSections = [
   {
     id: 'underreview', en: 'Revise and Resubmit (R&R) or Under Review',
     items: [
-      { label: '', html: p('Baines, J. I., Dalal, R. S., <strong>Kim, J. J.</strong>, Aitken, J. A., Kaplan, S. A., Zhu, Z., Hassani, J. (R2 under review). Research on remote work and counterproductive work behavior. <i>Human Performance</i>.') },
+      { label: '', html: p('Baines, J. I., Dalal, R. S., <strong>Kim, J. J.</strong>, Aitken, J. A., Kaplan, S. A., Zhu, Z., Hassani, J. (R3 under review). Research on remote work and counterproductive work behavior. <i>Human Performance</i>.') },
       { label: '', html: p('Ponce, L. P., <strong>Kim, J. J.</strong>, Kaplan, S. A., &amp; Fyffe, S. (R2 under review). Research on personality and measure-related techniques in experience-sampling methods. <i>International Journal of Social Research Methodology</i>.') },
-      { label: '', html: p('Ponce, L. P., Kaplan, S. A., Dalal, R. S., <strong>Kim, J. J.</strong>, Moon, N. A., &amp; Aitken, J. A. (Invited for R&amp;R2). Research on personality and work engagement. <i>Journal of Business and Psychology</i>.') },
+      { label: '', html: p('Ponce, L. P., Kaplan, S. A., Dalal, R. S., <strong>Kim, J. J.</strong>, Moon, N. A., &amp; Aitken, J. A. (R2 under review). Research on personality and work engagement. <i>Journal of Business and Psychology</i>.') },
       { label: '', html: p('Son, M., <strong>Kim, J. J.</strong>, Dalal, R. S. Sohn, J., Nguyen, L. K., &amp; Maguire, L. (R1 under review). Research on situational strength and substance. <i>European Journal of Personality</i>.') },
+      { label: '', html: p('Dalal, R. S., <strong>Kim, J. J.</strong>, Son, M., Sohn, J., Nguyen, L. K., &amp; Maguire, L. (Under review). Research on situational and personality strength.') },
     ],
   },
   {
