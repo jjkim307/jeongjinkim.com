@@ -6,6 +6,7 @@ const { pubs } = Astro.props;
     <div class="pub">
       <p set:html={p.html} />
       {p.doi && <a class="doi" href={p.doi} target="_blank" rel="noopener">DOI &nearr;</a>}
+      {p.video && <a class="doi" href={p.video} target="_blank" rel="noopener">Summary Video &nearr;</a>}
       {p.note && <span class="pub-note">[{p.note}]</span>}
     </div>
   ))}
