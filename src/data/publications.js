@@ -3,7 +3,7 @@ export const publications = [
     year: 2026, streams: ['i'],
     doi: 'https://doi.org/10.1111/apps.70126',
     video: 'https://youtu.be/IG81jCCxzU8',
-    html: '<strong>Kim, J. J.</strong>, Son, M., Dalal, R. S., Baines, J. I., Bui, T. N., Tsai, H., Aranda, N., &amp; Kaplan, S. A. (in press). Contextualizing personality&ndash;job performance relationships: A cultural tightness&ndash;looseness-based meta-analysis. <i>Applied Psychology: An International Review, 75</i>(4), e70126.',
+    html: '<strong>Kim, J. J.</strong>, Son, M., Dalal, R. S., Baines, J. I., Bui, T. N., Tsai, H., Aranda, N., &amp; Kaplan, S. A. (2026). Contextualizing personality&ndash;job performance relationships: A cultural tightness&ndash;looseness-based meta-analysis. <i>Applied Psychology: An International Review, 75</i>(4), e70126.',
   },
   {
     year: 2026, streams: ['i', 'ii'],
