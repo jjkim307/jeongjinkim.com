@@ -116,6 +116,8 @@ export const cvSections = [
     id: 'teaching', en: 'Teaching Experience',
     items: [
       { label: '', html: p('<strong>The University of Oklahoma</strong>') },
+      { label: 'Fall 2026', html: p('Work Motivation and Emotions (PSY 6703-001) — Instructor') },
+      { label: 'Fall 2026', html: p('Introduction to Industrial-Organizational Psychology (PSY 3753-996) — Instructor') },
       { label: 'Spring 2026', html: p('Introduction to Industrial-Organizational Psychology (PSY 3753-996) — Instructor') },
       { label: 'Fall 2025', html: p('Understanding Statistics (PSY 2003-001) — Instructor') },
       { label: 'Fall 2025', html: p('Introduction to Industrial-Organizational Psychology (PSY 3753-001) — Instructor') },
