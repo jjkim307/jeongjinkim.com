@@ -49,15 +49,15 @@ export const cvSections = [
   {
     id: 'grants', en: 'Grants and Research Funding',
     items: [
-      { label: '', html: p('<strong>Awarded External Funding</strong>') },
-      { label: '2024', html: p('Fostering Neurodiverse Individuals’ Work Success via an Assistive Wearable Technology (Award #2326270), $1,871,692. Granter: National Science Foundation. PI: Vivian G. Motti; Co-PI: Sarah M. Wittman. Role: Graduate Research Assistant (January 2024 – May 2025).') },
-      { label: '2021', html: p('Just-in-Time Adaptive Interventions for Emotion Regulation (Award #2052190), $400,000. Granter: National Science Foundation. PI: Reeshad S. Dalal; Co-PI: Seth A. Kaplan. Role: Graduate Research Assistant (June 2021 – August 2023).') },
-      { label: '2018', html: p('Jang Hoon Research Grant, $1,060. Granter: Consumer Insight &amp; Invight (South Korea). Role: PI.') },
       { label: '', html: p('<strong>Awarded Internal Funding</strong>') },
       { label: '2025', html: p('Research on attention-deficit/hyperactivity disorder and job performance, $5,628. Granter: George Mason University I-O Graduate Student Fund. Role: PI.') },
       { label: '2023', html: p('CARMA workshop in Polynomial Regression and Response Surface Analysis [Attendee], $400. Granter: George Mason University I-O Graduate Student Fund.') },
       { label: '2021', html: p('Research on job boredom, $3,000. Granter: George Mason University I-O Graduate Student Fund. Role: PI.') },
       { label: '2021', html: p('CenterStat workshop in Multilevel Modeling [Attendee], $600. Granter: George Mason University I-O Graduate Student Fund.') },
+      { label: '', html: p('<strong>Awarded External Funding</strong>') },
+      { label: '2024', html: p('Fostering Neurodiverse Individuals’ Work Success via an Assistive Wearable Technology (Award #2326270), $1,871,692. Granter: National Science Foundation. PI: Vivian G. Motti; Co-PI: Sarah M. Wittman. Role: Graduate Research Assistant (January 2024 – May 2025).') },
+      { label: '2021', html: p('Just-in-Time Adaptive Interventions for Emotion Regulation (Award #2052190), $400,000. Granter: National Science Foundation. PI: Reeshad S. Dalal; Co-PI: Seth A. Kaplan. Role: Graduate Research Assistant (June 2021 – August 2023).') },
+      { label: '2018', html: p('Jang Hoon Research Grant, $1,060. Granter: Consumer Insight &amp; Invight (South Korea). Role: PI.') },
     ],
   },
   {
@@ -110,6 +110,16 @@ export const cvSections = [
       { label: '3.', html: p('Shin, S. M., Song, Y. S.*, <strong>Kim, J. J.</strong>, &amp; Kim, T. J. (2017, August 3–6). The relationship between smartphone addiction and impulsiveness: Focused on delay discounting [Poster]. American Psychological Association 2017 Convention, Washington, DC, USA.') },
       { label: '2.', html: p('Hecht, C. A.*, <strong>Kim, J. J.</strong>, Tibbetts, Y., &amp; Harackiewicz, J. M. (2017, April 27–May 1). Finding value for the self versus close others: Implications for culturally-tailored utility-value interventions [Symposium]. In the Developments in Expectancy Value Intervention Research symposium, American Educational Research Association 2017 Convention, San Antonio, TX, USA.') },
       { label: '1.', html: p('Hecht, C. A.*, <strong>Kim, J. J.</strong>, Tibbetts, Y., &amp; Harackiewicz, J. M. (2017, January 19–21). Finding value for the self versus close others: Implications for culturally-tailored utility-value interventions [Poster]. Society for Personality and Social Psychology 2017 Convention, San Antonio, TX, USA.') },
+    ],
+  },
+  {
+    id: 'advising', en: 'Advising',
+    items: [
+      { label: '', html: p('<strong>Doctoral Dissertations</strong>') },
+      { label: 'TBD', html: p('Amanda Stephens (Committee member)<br><i>The role of workplace supports: An investigation of employees with and without ADHD</i>') },
+      { label: '', html: p('<strong>Master’s Theses</strong>') },
+      { label: 'TBD', html: p('Theo Meyer (Committee member)<br><i>Comparing approaches to time series clustering for intensive longitudinal data: A Monte Carlo simulation study</i> — proposal defended') },
+      { label: 'TBD', html: p('Gabrielle Mellor (Committee member)<br>Topic TBD') },
     ],
   },
   {
