@@ -1,6 +1,6 @@
 import { publications } from './publications.js';
 
-export const cvUpdated = 'July 18, 2026';
+export const cvUpdated = 'July 30, 2026';
 
 const p = (s) => s; // readability no-op for long strings
 
