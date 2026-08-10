@@ -1,5 +1,9 @@
 export const publications = [
   {
+    year: 2026, streams: [],
+    html: 'Ponce, L. P., <strong>Kim, J. J.</strong>, Kaplan, S. A., &amp; Fyffe, S. (accepted). Measure-shortening techniques: A how-to guide for within-person personality research. <i>International Journal of Social Research Methodology</i>.',
+  },
+  {
     year: 2026, streams: ['i'],
     doi: 'https://doi.org/10.1111/apps.70126',
     video: 'https://youtu.be/IG81jCCxzU8',
