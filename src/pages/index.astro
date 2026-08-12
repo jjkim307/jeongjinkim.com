@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PubList from '../components/PubList.astro';
 import { publications } from '../data/publications.js';
-import { EMAIL, SCHOLAR_URL, LINKEDIN_URL } from '../data/site.js';
+import { EMAIL, SCHOLAR_URL, LINKEDIN_URL, ORCID_URL } from '../data/site.js';
 ---
 <Layout
   title="JeongJin Kim | Industrial-Organizational Psychologist"
@@ -21,6 +21,7 @@ import { EMAIL, SCHOLAR_URL, LINKEDIN_URL } from '../data/site.js';
         <a class="btn primary" href={`mailto:${EMAIL}`}>Email</a>
         <a class="btn" href="/cv/">CV</a>
         <a class="btn" href={SCHOLAR_URL} target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn" href={ORCID_URL} target="_blank" rel="noopener">ORCID</a>
         <a class="btn" href={LINKEDIN_URL} target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
@@ -40,7 +41,10 @@ import { EMAIL, SCHOLAR_URL, LINKEDIN_URL } from '../data/site.js';
       <li>Individual work performance behavior (e.g., counterproductive work behavior, organizational citizenship behavior)</li>
     </ul>
     <div class="phd-note">
-      <p><strong>Prospective PhD students:</strong> I plan to admit a PhD student starting Fall 2027.</p>
+      <p>
+        <strong>Prospective PhD students:</strong> I plan to admit a PhD student starting Fall
+        2027. <a class="arrow-link" href="/prospective-students/">More information &rarr;</a>
+      </p>
     </div>
   </section>
 

@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { EMAIL } from '../data/site.js';
+---
+<Layout
+  title="Prospective PhD Students | JeongJin Kim"
+  description="Information for prospective PhD students interested in working with JeongJin Kim at the University of Oklahoma."
+  active="prospective"
+  enPath="/prospective-students/"
+>
+  <h1 class="page-title serif">Prospective PhD Students</h1>
+  <p class="page-intro">I plan to admit a PhD student starting Fall 2027.</p>
+
+  <section class="about">
+    <h2 class="sec-label">What I Look For</h2>
+    <p>
+      I welcome applications from prospective PhD students who demonstrate fit, prior research
+      experience, methods/statistics preparation, and academic writing ability. Fit matters most:
+      students whose research interests overlap with one or more of my
+      <a href="/research/">programs of research</a> are the ones I am best positioned to advise. I
+      also welcome applications from students who are active learners, critical thinkers, and
+      effective communicators.
+    </p>
+  </section>
+
+  <section class="about">
+    <h2 class="sec-label">Getting in Touch</h2>
+    <p>
+      Prospective PhD students interested in working with me are encouraged to send me an
+      <a href={`mailto:${EMAIL}`}>email</a> with their CV, research interests, and fit before
+      applying.
+    </p>
+  </section>
+</Layout>

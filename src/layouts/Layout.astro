@@ -16,6 +16,45 @@ const site = 'https://jeongjinkim.com';
     <meta name="author" content="JeongJin Kim" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={site + enPath} />
+
+    <meta property="og:type" content={enPath === '/' ? 'profile' : 'website'} />
+    <meta property="og:site_name" content="JeongJin Kim" />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={site + enPath} />
+    <meta property="og:image" content={site + '/headshot.jpg'} />
+    <meta property="og:image:alt" content="JeongJin Kim" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'JeongJin Kim',
+      givenName: 'JeongJin',
+      familyName: 'Kim',
+      honorificSuffix: 'Ph.D.',
+      jobTitle: 'Assistant Professor of Psychology',
+      url: site + '/',
+      image: site + '/headshot.jpg',
+      email: 'mailto:jjkim@ou.edu',
+      knowsAbout: [
+        'Industrial and Organizational Psychology',
+        'Person-situation interactions',
+        'Job attitudes and affect',
+        'Work performance behavior',
+      ],
+      affiliation: {
+        '@type': 'CollegeOrUniversity',
+        name: 'The University of Oklahoma',
+        department: { '@type': 'Organization', name: 'Department of Psychology' },
+        url: 'https://www.ou.edu',
+      },
+      identifier: 'https://orcid.org/0000-0002-0562-2488',
+      sameAs: [
+        'https://orcid.org/0000-0002-0562-2488',
+        'https://scholar.google.com/citations?user=3312EoQAAAAJ&hl=en',
+        'https://www.linkedin.com/in/jeongjinjjkim/',
+      ],
+    })} />
     <script is:inline>
       try {
         var s = parseFloat(localStorage.getItem('jk-font-scale'));
