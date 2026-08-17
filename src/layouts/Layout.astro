@@ -22,8 +22,10 @@ const site = 'https://jeongjinkim.com';
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
     <meta property="og:url" content={site + enPath} />
-    <meta property="og:image" content={site + '/headshot.jpg'} />
-    <meta property="og:image:alt" content="JeongJin Kim" />
+    <meta property="og:image" content={site + '/og-card.png'} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="JeongJin Kim, Ph.D., Industrial-Organizational Psychologist, Assistant Professor of Psychology, The University of Oklahoma" />
 
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
