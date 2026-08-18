@@ -1,5 +1,11 @@
-"""Generate the 1200x630 social preview card for jeongjinkim.com."""
+"""Generate the 1200x630 social preview card.
 
+All text comes from src/data/profile.json, the same source the site itself reads,
+so the card cannot drift from the page. Re-run with `npm run og` after editing
+that file or replacing the headshot, then commit the regenerated PNG.
+"""
+
+import json
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -18,8 +24,9 @@ SERIF_BOLD = "/System/Library/Fonts/Supplemental/Georgia Bold.ttf"
 SANS = "/System/Library/Fonts/Supplemental/Arial.ttf"
 SANS_BOLD = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
 
-ROOT = Path.home() / "projects" / "jeongjinkim.com"
-HEADSHOT = ROOT / "public" / "headshot.jpg"
+ROOT = Path(__file__).resolve().parent.parent
+PROFILE = json.loads((ROOT / "src" / "data" / "profile.json").read_text())
+HEADSHOT = ROOT / "public" / PROFILE["headshot"].lstrip("/")
 OUT = ROOT / "public" / "og-card.png"
 
 
@@ -60,23 +67,21 @@ x = 100 * SCALE
 y = 170 * SCALE
 
 f_name = font(SERIF_BOLD, 58)
-draw.text((x, y), "JeongJin Kim, Ph.D.", font=f_name, fill=TEXT)
+draw.text((x, y), f'{PROFILE["name"]}, {PROFILE["suffix"]}', font=f_name, fill=TEXT)
 y += 100 * SCALE
 
 draw.rectangle([x, y, x + 84 * SCALE, y + 4 * SCALE], fill=CRIMSON)
 y += 42 * SCALE
 
 f_role = font(SANS, 30)
-for line, color in [
-    ("Industrial-Organizational Psychologist", STATEMENT),
-    ("Assistant Professor of Psychology", STATEMENT),
-    ("The University of Oklahoma", MUTED),
-]:
+lines = [(role, STATEMENT) for role in PROFILE["roles"]]
+lines.append((PROFILE["affiliation"], MUTED))
+for line, color in lines:
     draw.text((x, y), line, font=f_role, fill=color)
     y += 46 * SCALE
 
 f_url = font(SANS_BOLD, 20)
-tracked(draw, (x, H - 118 * SCALE), "JEONGJINKIM.COM", f_url, MUTED, 3)
+tracked(draw, (x, H - 118 * SCALE), PROFILE["domain"].upper(), f_url, MUTED, 3)
 
 img.resize((1200, 630), Image.LANCZOS).save(OUT, "PNG", optimize=True)
 print(f"wrote {OUT} ({OUT.stat().st_size // 1024} KB)")

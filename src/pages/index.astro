@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PubList from '../components/PubList.astro';
 import { publications } from '../data/publications.js';
-import { EMAIL, SCHOLAR_URL, LINKEDIN_URL, ORCID_URL } from '../data/site.js';
+import { EMAIL, SCHOLAR_URL, LINKEDIN_URL, ORCID_URL, PROFILE } from '../data/site.js';
 ---
 <Layout
   title="JeongJin Kim | Industrial-Organizational Psychologist"
@@ -12,10 +12,9 @@ import { EMAIL, SCHOLAR_URL, LINKEDIN_URL, ORCID_URL } from '../data/site.js';
 >
   <section class="hero">
     <div class="hero-text">
-      <h1 class="serif">JeongJin Kim<span class="phd">, Ph.D.</span></h1>
-      <p class="hero-role">Industrial-Organizational Psychologist</p>
-      <p class="hero-role">Assistant Professor of Psychology</p>
-      <p class="hero-affil">The University of Oklahoma</p>
+      <h1 class="serif">{PROFILE.name}<span class="phd">, {PROFILE.suffix}</span></h1>
+      {PROFILE.roles.map((role) => <p class="hero-role">{role}</p>)}
+      <p class="hero-affil">{PROFILE.affiliation}</p>
       <p class="hero-statement serif">I study the human mind and behavior in the workplace.</p>
       <div class="hero-links">
         <a class="btn primary" href={`mailto:${EMAIL}`}>Email</a>
@@ -25,7 +24,7 @@ import { EMAIL, SCHOLAR_URL, LINKEDIN_URL, ORCID_URL } from '../data/site.js';
         <a class="btn" href={LINKEDIN_URL} target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
-    <img class="hero-headshot" src="/headshot.jpg" alt="JeongJin Kim" width="270" height="331" />
+    <img class="hero-headshot" src={PROFILE.headshot} alt={PROFILE.name} width="270" height="331" />
   </section>
 
   <section class="about">

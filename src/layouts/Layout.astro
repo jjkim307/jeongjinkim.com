@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { EMAIL, SCHOLAR_URL, LINKEDIN_URL, ORCID_URL, PROFILE } from '../data/site.js';
 
 const { title, description = '', active = 'home', enPath = '/' } = Astro.props;
 const site = 'https://jeongjinkim.com';
@@ -13,31 +14,31 @@ const site = 'https://jeongjinkim.com';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
-    <meta name="author" content="JeongJin Kim" />
+    <meta name="author" content={PROFILE.name} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={site + enPath} />
 
     <meta property="og:type" content={enPath === '/' ? 'profile' : 'website'} />
-    <meta property="og:site_name" content="JeongJin Kim" />
+    <meta property="og:site_name" content={PROFILE.name} />
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
     <meta property="og:url" content={site + enPath} />
     <meta property="og:image" content={site + '/og-card.png'} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="JeongJin Kim, Ph.D., Industrial-Organizational Psychologist, Assistant Professor of Psychology, The University of Oklahoma" />
+    <meta property="og:image:alt" content={`${PROFILE.name}, ${PROFILE.suffix}, ${PROFILE.roles.join(', ')}, ${PROFILE.affiliation}`} />
 
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Person',
-      name: 'JeongJin Kim',
-      givenName: 'JeongJin',
-      familyName: 'Kim',
-      honorificSuffix: 'Ph.D.',
-      jobTitle: 'Assistant Professor of Psychology',
+      name: PROFILE.name,
+      givenName: PROFILE.givenName,
+      familyName: PROFILE.familyName,
+      honorificSuffix: PROFILE.suffix,
+      jobTitle: PROFILE.jobTitle,
       url: site + '/',
-      image: site + '/headshot.jpg',
-      email: 'mailto:jjkim@ou.edu',
+      image: site + '/og-card.png',
+      email: `mailto:${EMAIL}`,
       knowsAbout: [
         'Industrial and Organizational Psychology',
         'Person-situation interactions',
@@ -46,16 +47,12 @@ const site = 'https://jeongjinkim.com';
       ],
       affiliation: {
         '@type': 'CollegeOrUniversity',
-        name: 'The University of Oklahoma',
-        department: { '@type': 'Organization', name: 'Department of Psychology' },
-        url: 'https://www.ou.edu',
+        name: PROFILE.affiliation,
+        department: { '@type': 'Organization', name: PROFILE.department },
+        url: PROFILE.affiliationUrl,
       },
-      identifier: 'https://orcid.org/0000-0002-0562-2488',
-      sameAs: [
-        'https://orcid.org/0000-0002-0562-2488',
-        'https://scholar.google.com/citations?user=3312EoQAAAAJ&hl=en',
-        'https://www.linkedin.com/in/jeongjinjjkim/',
-      ],
+      identifier: ORCID_URL,
+      sameAs: [ORCID_URL, SCHOLAR_URL, LINKEDIN_URL],
     })} />
     <script is:inline>
       try {
